@@ -53,3 +53,12 @@ a {
     display: flex;
     justify-content: flex-end;
 }
+
+.account__logIn, .account__signIn {
+    width: 32px;
+    height: 32px;
+}
+
+.account__logIn {
+    margin-right: 16px;
+}
