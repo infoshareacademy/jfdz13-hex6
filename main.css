@@ -16,15 +16,40 @@
 
 body {
     height: 100%;
+    width: 100%;
 }
 
 .headline {
     display: flex;
+    margin: 24px;
 }
-
 
 /* LOGO */
 
+.logo {
+    flex: 1 0 auto;
+} 
+
 /* NAVIGATION */
 
+.navigation {
+    flex: 3 0 auto;
+}
+
+.navigation__buttons {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+a {
+    text-decoration: none;
+}
+
 /* ACCOUNT */
+
+.account {
+    flex: 1 0 auto;
+    display: flex;
+    justify-content: flex-end;
+}
