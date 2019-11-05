@@ -8,22 +8,28 @@
   <link rel="stylesheet" href="main.css">
 </head>
 <body>
-<nav class="navigation"></nav>
+  <nav class="navigation"></nav>
 
   <section class="hero-section"></section>
 
-  <section class="">
+  <section class="send-email">
 
-    <h2>Zapis na premierę</h2>
+    <div class="send-email-premiere">
 
-    <p>Dziękujemy za zainteresowanie. Premiera strony już wkrótce. Zostaw nam swój adress e-mail, a poinformujemy Cię o niej w pierwszej kolejności.</p>
+      <h2 class="send-email-header">Zapis na premierę</h2>
 
-    <form action="/action_page.php">
-      <input type="email" id="myCheck" placeholder="Wpisz adres e-mail..." name="emailaddress" required>
-      <input type="checkbox" id="myCheck" name="test" required> <br>Wyrażam zgodę na przetwarzanie przez QUO VADIS moich danych osobowych zawartych w powyższym formularzu w celu przedstawienia oferty. 
-      <input type="submit" value="Zapisz się">
-    </form>
-    
+      <p class="send-email-text">Dziękujemy za zainteresowanie. Premiera strony już wkrótce. Zostaw nam swój adress e-mail, a poinformujemy Cię o niej w pierwszej kolejności.</p>
+
+      <form action="_blank" class="send-email-form">
+        <input type="email" placeholder="Wpisz adres e-mail..." name="emailaddress" required>
+        <div class="checkbox" ><input type="checkbox" name="test" required><span>Wyrażam zgodę na przetwarzanie przez QUO VADIS moich danych osobowych zawartych w powyższym formularzu w celu przedstawienia oferty.</span></div>
+        <input type="submit" value="Zapisz się">
+      </form>
+
+      <p class="send-email-clause">Administratorem danych osobowych jest QUO VADIS ul. xxxxxxxxxxxxx, 80-XXX Gdańsk. Podanie danych osobowych jest dobrowolne, ale niezbędne do realizacji przesłanego zgłoszenia. Podstawa prawna, cel, okres przetwarzania danych osobowych oraz uprawnienia przysługujące Użytkownikowi, a także inne ważne informacje dotyczące zasad przetwarzania danych osobowych są szczegółowo określone w <a href="#">Polityce prywatności</a> QUO VADIS.</p>
+
+    </div>
+
   </section>
 
   <footer class="footer"></footer>
