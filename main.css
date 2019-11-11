@@ -1,64 +1,62 @@
-:root {
-    --primary-color:;
-    --secondary-color:;
-    --font-color:;
-    --logo-color:;
-    --serif-font:;
-    --sansserif-font:;
-}
-
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+    
+html, body {
     font-size: 16px;
-}
-
-body {
     height: 100%;
-    width: 100%;
 }
 
-.headline {
-    display: flex;
-    margin: 24px;
+:root {
+    --color-primary: #fefefe;
+    --color-yellow: #fed701;
+    --color-darkblue: #02c9da;
+    --color-lightblue: #85dbf2;
+    --color-dark: #191919;
+    --gutter: 1rem;
+    --font-header: 'Montserrat', sans-serif;
+    --font-body: 'Source Sans Pro', sans-serif;
 }
 
-/* LOGO */
+/* HEADER */
 
-.logo {
-    flex: 1 0 auto;
-} 
+.navigationContainer {
+    background: #ffc000;
+    border-radius: 0px 4px 4px 0px;
+    left: -304px;
+    padding: 4px 4px 4px 0px;
+    position: fixed;
+    top: 100px;
+    transition: transform 0.4s;
+    width: 300px;
+}
 
-/* NAVIGATION */
+.navigationContainer:hover {
+    transform: translateX(304px);
+}
 
 .navigation {
-    flex: 3 0 auto;
+    background: #fff;
+    min-height: 200px;
+    padding: 10px;
+    position: relative;
 }
 
-.navigation__buttons {
-    list-style-type: none;
-    display: flex;
-    justify-content: space-around;
-}
-
-a {
-    text-decoration: none;
-}
-
-/* ACCOUNT */
-
-.account {
-    flex: 1 0 auto;
-    display: flex;
-    justify-content: flex-end;
-}
-
-.account__logIn, .account__signIn {
-    width: 32px;
-    height: 32px;
-}
-
-.account__logIn {
-    margin-right: 16px;
+.navigation__title {
+    background: #fff;
+    border: solid #ffc000;
+    border-radius: 0px 0px 4px 4px;
+    border-width: 0px 4px 4px;
+    cursor: default;
+    font-size: 18px;
+    height: 30px;
+    line-height: 30px;
+    position: absolute;
+    right: -74px;
+    text-align: center;
+    top: 70px;
+    transform: rotate(-90deg);
+    width: 106px;
 }
