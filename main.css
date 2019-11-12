@@ -23,40 +23,48 @@ html, body {
 /* HEADER */
 
 .navigationContainer {
-    background: #ffc000;
-    border-radius: 0px 4px 4px 0px;
-    left: -304px;
-    padding: 4px 4px 4px 0px;
+    left: -460px; /* jak ustawić wartość względną? % / em / rem ? */
     position: fixed;
-    top: 100px;
+    top: 10%;
     transition: transform 0.4s;
-    width: 300px;
+    width: 30%;
+    font-family: var(--font-body);
+    text-align: center;
 }
 
 .navigationContainer:hover {
-    transform: translateX(304px);
+    transform: translateX(460px); /* jak ustawić wartość względną? % / em / rem ? */
 }
 
 .navigation {
-    background: #fff;
-    min-height: 200px;
-    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-lightblue);
+    height: 60vh;
     position: relative;
 }
 
 .navigation__title {
-    background: #fff;
-    border: solid #ffc000;
-    border-radius: 0px 0px 4px 4px;
-    border-width: 0px 4px 4px;
     cursor: default;
-    font-size: 18px;
-    height: 30px;
+    font-size: 1rem;
+    letter-spacing: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    height: 10%;
     line-height: 30px;
     position: absolute;
-    right: -74px;
+    right: -9.25rem;
     text-align: center;
-    top: 70px;
+    top: 10rem;
     transform: rotate(-90deg);
-    width: 106px;
+    width: 50%;
+}
+
+.navigation__content ul {
+    font-size: 1.5rem;
+    text-decoration: none;
+    list-style: none;
+    line-height: 3rem;
 }
