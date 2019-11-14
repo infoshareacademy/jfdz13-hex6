@@ -21,6 +21,10 @@ html, body {
 }
 
 /* HEADER */
+.logo {
+    position: absolute; /*rozwiązanie tymczasowe */
+    right: 10px;
+}
 
 .navigationContainer {
     left: -48vh;
@@ -43,7 +47,7 @@ html, body {
 
 .navigation__title {
     cursor: default;
-    font-size: 1rem;
+    font-size: 1.5rem;
     letter-spacing: 1rem;
     text-transform: uppercase;
     font-weight: bold;
@@ -52,14 +56,29 @@ html, body {
     position: absolute;
     right: -10vh;
     text-align: center;
-    top: 40vh;
+    top: 45vh;
     transform: rotate(-90deg);
     width: 10vh;
 }
 
 .navigation__content ul {
-    font-size: 1.5rem;
+    font-size: 2rem;
     text-decoration: none;
     list-style: none;
-    line-height: 3rem;
+    line-height: 4rem;
+}
+
+.navigation__content li:hover {
+    font-size: 3rem;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) { /* jak ustawić eby menu rozwijało się po kliknięciu a nie najechaniu przymniejszych rodzielczościach? */
+    .navigationContainer:hover {
+        transform: none;
+    }
+
+    .navigationContainer:active {
+        transform: translateX(48vh);
+    }
 }
