@@ -34,12 +34,12 @@ html, body {
   background-size: cover;
 }
 
-.temp-navbar {
+/* .temp-navbar {
   width: 100%;
   height: 100px;
   background-color: hotpink;
   display: block;
-}
+} */
 
 .hero-section__content {
   display: flex;
