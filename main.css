@@ -20,13 +20,8 @@ html, body {
     --font-body: 'Source Sans Pro', sans-serif;
 }
 
-/* HEADER */
-.logo {
-    position: absolute; /*rozwiązanie tymczasowe */
-    right: 10px;
-}
-
-.navigationContainer {
+/* NAV */
+.navigation-container {
     left: -48vh;
     position: fixed;
     transition: transform 0.4s;
@@ -39,10 +34,10 @@ html, body {
     justify-content: center;
     background: var(--color-lightblue);
     height: 50vh;
-    top: 20vh;
+    top: 25vh;
 }
 
-.navigationContainer:hover {
+.navigation-container:hover {
     transform: translateX(48vh);
 }
 
@@ -62,24 +57,24 @@ html, body {
     width: 10vh;
 }
 
-.navigation__content ul {
+.navigation-list {
     font-size: 2rem;
     text-decoration: none;
     list-style: none;
     line-height: 4rem;
 }
 
-.navigation__content li:hover {
+.navigation-list__item:hover {
     font-size: 3rem;
     cursor: pointer;
 }
 
 @media (max-width: 768px) { /* jak ustawić eby menu rozwijało się po kliknięciu a nie najechaniu przymniejszych rodzielczościach? */
-    .navigationContainer:hover {
+    .nnavigation-container:hover {
         transform: none;
     }
 
-    .navigationContainer:active {
+    .navigation-container:active {
         transform: translateX(48vh);
     }
 }
