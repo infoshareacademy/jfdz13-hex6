@@ -23,73 +23,100 @@ html, body {
 
 /*Zapis na premierę*/
 
-.send-email {
-    width: 1200px;
+.red {
+    background-color: red;
+    height: 500px;
+}
+
+.blue {
+    background-color: blue;
+    height: 500px;
+}
+
+.sendEmail__section {
     margin: auto;
-    background: rgb(201, 201, 201);
+    background: #85dbf2;
     height: 100vh;
-    font-size: 14px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.send-email .send-email-premiere {
-    max-width: 600px;
-    background-color: ivory;
+.sendEmail__infoBox {
+    width: 600px;
+    background-color: #fed701;
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: #191919;
 }
 
-.send-email .send-email-header {
+@media (max-width: 600px) {
+    .sendEmail__section {
+        height: 100%;
+    }
+    .sendEmail__infoBox {
+        height: 100%; 
+    }
+}
+
+.sendEmail__header {
     font-size: 50px;
+    font-family: var(--font-header);
     padding: 10px;
+    text-align: center;
 }
 
-.send-email .send-email-text {
-    font-size: 1.3em;
+.sendEmail__textInfo {
+    font-size: 1.3rem;
     padding: 15px;
     text-align: center;
-    line-height: 2em;
+    line-height: 2rem;
+    font-family: var(--font-body);
 }
 
-.send-email .send-email-form {
+.sendEmail__form {
     padding: 10px;
 }
 
-.send-email .send-email-form > input:first-child {
+.sendEmail__form > input:first-child {
     margin: 10px;
+    height: 50px;
+    width: 70vw;
+    max-width: 500px;
 }
 
-.send-email .send-email-form .checkbox {
+.sendEmail__form .checkbox {
     display: flex;
     padding: 10px;
 }
 
-.send-email .send-email-form .checkbox span:nth-child(2) {
+.sendEmail__form .checkbox span:nth-child(2) {
     padding: 10px;
+    font-family: var(--font-body);
 }
 
- .send-email .send-email-form input:nth-child(3) {
-    background-color: lightblue;
+.sendEmail__form input:nth-child(3) {
+    background-color: #85dbf2;
     border: none;
     padding: 15px;
     cursor: pointer;
-    font-size: 1.2em;
+    font-size: 1.2rem;
     margin-left: 10px;
  }
 
- .send-email .send-email-form input:nth-child(3):hover {
-     background-color: rgb(131, 201, 224);
+.sendEmail__form input:nth-child(3):hover {
+     background-color: #02c9da;
+     font-size: 1.3rem;
  }
 
-.send-email .send-email-clause {
+.sendEmail__clause {
     margin: 15px;
-    font-size: 0.8em;
+    font-size: 0.8rem;
     font-style: italic;
+    font-family: var(--font-body);
 }
 
-.send-email .send-email-clause a {
+.sendEmail__clause a {
     text-decoration: none;
 }
