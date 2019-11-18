@@ -1,9 +1,27 @@
-/*Zapis na premierę*/
-
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
+
+html, body {
+    font-size: 16px;
+    height: 100%;
+}
+
+:root {
+    --color-primary: #fefefe;
+    --color-yellow: #fed701;
+    --color-darkblue: #02c9da;
+    --color-lightblue: #85dbf2;
+    --color-dark: #191919;
+    --gutter: 1rem;
+    --font-header: 'Montserrat', sans-serif;
+    --font-body: 'Source Sans Pro', sans-serif;
+}
+
+
+/*Zapis na premierę*/
 
 .send-email {
     width: 1200px;
