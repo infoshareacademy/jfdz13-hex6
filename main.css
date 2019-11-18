@@ -23,19 +23,10 @@ html, body {
 
 /*Zapis na premierę*/
 
-.red {
-    background-color: red;
-    height: 500px;
-}
-
-.blue {
-    background-color: blue;
-    height: 500px;
-}
 
 .sendEmail__section {
     margin: auto;
-    background: #85dbf2;
+    background: #191919;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -44,27 +35,22 @@ html, body {
 
 .sendEmail__infoBox {
     width: 600px;
-    background-color: #fed701;
+    border: 1px solid #fed701;
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: #191919;
+    color: #fefefe;
+    margin:20px;
+ 
 }
 
-@media (max-width: 600px) {
-    .sendEmail__section {
-        height: 100%;
-    }
-    .sendEmail__infoBox {
-        height: 100%; 
-    }
-}
 
 .sendEmail__header {
     font-size: 50px;
     font-family: var(--font-header);
     padding: 10px;
     text-align: center;
+    color: #02c9da;
 }
 
 .sendEmail__textInfo {
@@ -82,7 +68,7 @@ html, body {
 .sendEmail__form > input:first-child {
     margin: 10px;
     height: 50px;
-    width: 70vw;
+    width: 40vw;
     max-width: 500px;
 }
 
@@ -119,4 +105,19 @@ html, body {
 
 .sendEmail__clause a {
     text-decoration: none;
+    color: #85dbf2;
+}
+
+
+@media (max-width: 600px) {
+    .sendEmail__section {
+        height: 100%;
+    }
+    .sendEmail__infoBox {
+        height: 100%; 
+    }
+
+    .sendEmail__form > input:first-child {
+        width: 60vw;
+    }
 }
