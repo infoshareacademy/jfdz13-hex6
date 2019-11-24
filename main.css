@@ -1,24 +1,84 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-  
+    
 html, body {
-  font-size: 16px;
-  height: 100%;
-}
-:root {
-  --color-primary: #fefefe;
-  --color-yellow: #fed701;
-  --color-darkblue: #02c9da;
-  --color-lightblue: #85dbf2;
-  --color-dark: #191919;
-  --gutter: 1rem;
-  --font-header: 'Montserrat', sans-serif;
-  --font-body: 'Source Sans Pro', sans-serif;
+    font-size: 16px;
+    height: 100%;
 }
 
+:root {
+    --color-primary: #fefefe;
+    --color-yellow: #fed701;
+    --color-darkblue: #02c9da;
+    --color-lightblue: #85dbf2;
+    --color-dark: #191919;
+    --gutter: 1rem;
+    --font-header: 'Montserrat', sans-serif;
+    --font-body: 'Source Sans Pro', sans-serif;
+}
+
+/* NAV */
+.navigation-container {
+    left: -48vh;
+    position: fixed;
+    transition: transform 0.4s;
+    width: 50vh;
+    font-family: var(--font-body);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-lightblue);
+    height: 50vh;
+    top: 25vh;
+}
+
+.navigation-container:hover {
+    transform: translateX(48vh);
+}
+
+.navigation__title {
+    cursor: default;
+    font-size: 1.5rem;
+    letter-spacing: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    height: 10%;
+    line-height: 30px;
+    position: absolute;
+    right: -10vh;
+    text-align: center;
+    top: 25vh;
+    transform: rotate(-90deg);
+    width: 10vh;
+}
+
+.navigation-list {
+    font-size: 2rem;
+    text-decoration: none;
+    list-style: none;
+    line-height: 4rem;
+}
+
+.navigation-list__item:hover {
+    font-size: 3rem;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) { /* jak ustawić eby menu rozwijało się po kliknięciu a nie najechaniu przymniejszych rodzielczościach? */
+    .navigation-container:hover {
+        transform: none;
+    }
+
+    .navigation-container:active {
+        transform: translateX(48vh);
+    }
+}
+  
 /* HERO SECTION */
 
 .hero-section {
