@@ -70,7 +70,7 @@ html, body {
 }
 
 @media (max-width: 768px) { /* jak ustawić eby menu rozwijało się po kliknięciu a nie najechaniu przymniejszych rodzielczościach? */
-    .nnavigation-container:hover {
+    .navigation-container:hover {
         transform: none;
     }
 
