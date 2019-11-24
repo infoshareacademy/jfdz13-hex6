@@ -33,6 +33,7 @@ html, body {
     align-items: center;
     justify-content: center;
     background: var(--color-lightblue);
+    opacity: 0.5;
     height: 50vh;
     top: 25vh;
 }
