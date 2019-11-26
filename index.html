@@ -13,29 +13,30 @@
 
   <section class="hero-section"></section>
 
-  <section class="contactSection">
+    <section class="contactSection">
 
-    <section class="sendEmail__section">
+      <div class="dataForm">
 
-      <div class="sendEmail__infoBox">
+        <h2 class="dataForm__header">Zapis na premierę</h2>
 
-        <h2 class="sendEmail__header">Zapis na premierę</h2>
+        <p class="dataForm__textInfo">Dziękujemy za zainteresowanie. Premiera strony już wkrótce. Zostaw nam swój adress e-mail, a poinformujemy Cię o niej w pierwszej kolejności.</p>
 
-        <p class="sendEmail__textInfo">Dziękujemy za zainteresowanie. Premiera strony już wkrótce. Zostaw nam swój adress e-mail, a poinformujemy Cię o niej w pierwszej kolejności.</p>
-
-        <form action="_blank" class="sendEmail__form">
-          <input type="email" placeholder="Wpisz adres e-mail..." name="emailaddress" required>
-          <div class="checkbox" ><input type="checkbox" name="test" required><span>Wyrażam zgodę na przetwarzanie przez QUO VADIS moich danych osobowych zawartych w powyższym formularzu w celu przedstawienia oferty.</span></div>
-          <input type="submit" value="Zapisz się">
+        <form action="_blank" class="dataForm__form">
+          <label class="label" for="fname">First Name</label>
+          <input class="dataBox" type="text" id="fname" name="firstname" placeholder=" Your name.." required>
+          <label class="label" for="lname">Last Name</label>
+          <input class="dataBox" type="text" id="lname" name="lastname" placeholder=" Your last name.." required>
+          <label class="label" for="email">E-mail address</label>
+          <input class="dataBox" type="email" id='email' placeholder=" Enter e-mail..." name="emailaddress" required>
+          <div class="agreementBlock" ><input class="checkbox" type="checkbox" name="agreement" required><span class="agreementText">Wyrażam zgodę na przetwarzanie przez QUO VADIS moich danych osobowych zawartych w powyższym formularzu w celu przedstawienia oferty.</span></div>
+          <input class="submitInput" type="submit" value="Zapisz się">
         </form>
 
-        <p class="sendEmail__clause">Administratorem danych osobowych jest <a href="#">QUO VADIS</a>. Podanie danych osobowych jest dobrowolne, ale niezbędne do realizacji przesłanego zgłoszenia. Podstawa prawna, cel, okres przetwarzania danych osobowych oraz uprawnienia przysługujące Użytkownikowi, a także inne ważne informacje dotyczące zasad przetwarzania danych osobowych są szczegółowo określone w <a href="#">Polityce prywatności</a> QUO VADIS.</p>
+        <p class="dataForm__clause">Administratorem danych osobowych jest <a href="#">QUO VADIS</a>. Podanie danych osobowych jest dobrowolne, ale niezbędne do realizacji przesłanego zgłoszenia. Podstawa prawna, cel, okres przetwarzania danych osobowych oraz uprawnienia przysługujące Użytkownikowi, a także inne ważne informacje dotyczące zasad przetwarzania danych osobowych są szczegółowo określone w <a href="#">Polityce prywatności</a> QUO VADIS.</p>
 
       </div>
 
     </section>
-
-  </section>
 
   <footer class="footer"></footer>
 

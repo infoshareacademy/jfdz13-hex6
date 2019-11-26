@@ -24,36 +24,32 @@ html, body {
 /*Zapis na premierę*/
 
 
-.sendEmail__section {
+.contactSection {
     margin: auto;
-    background: #191919;
-    height: 100vh;
+    background: var(--color-dark);
+    height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.sendEmail__infoBox {
+.dataForm {
     width: 600px;
-    border: 1px solid #fed701;
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: #fefefe;
-    margin:20px;
- 
+    color: var(--color-primary);
 }
 
-
-.sendEmail__header {
-    font-size: 50px;
+.dataForm__header {
+    font-size: 3rem;
     font-family: var(--font-header);
     padding: 10px;
     text-align: center;
-    color: #02c9da;
+    color: var(--color-darkblue);
 }
 
-.sendEmail__textInfo {
+.dataForm__textInfo {
     font-size: 1.3rem;
     padding: 15px;
     text-align: center;
@@ -61,63 +57,79 @@ html, body {
     font-family: var(--font-body);
 }
 
-.sendEmail__form {
+.dataForm__form {
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.sendEmail__form > input:first-child {
+.dataForm__form .label {
+    font-family: var(--font-body);
+    font-weight: bold;
+    margin-top: 5px;
+    font-size: 1.2rem;
+}
+
+.dataForm__form .dataBox {
     margin: 10px;
     height: 50px;
-    width: 40vw;
+    /* width: 40vw; */
     max-width: 500px;
 }
 
-.sendEmail__form .checkbox {
+.dataForm__form .agreementBlock {
     display: flex;
     padding: 10px;
+    align-items: center;
 }
 
-.sendEmail__form .checkbox span:nth-child(2) {
+.dataForm__form .agreementBlock .agreementText {
     padding: 10px;
     font-family: var(--font-body);
 }
 
-.sendEmail__form input:nth-child(3) {
-    background-color: #85dbf2;
+.dataForm__form .submitInput {
+    background-color: var(--color-lightblue);
     border: none;
     padding: 15px;
     cursor: pointer;
     font-size: 1.2rem;
     margin-left: 10px;
- }
+}
 
-.sendEmail__form input:nth-child(3):hover {
-     background-color: #02c9da;
+.dataForm__form .submitInput:hover {
+     background-color: var(--color-darkblue);
      font-size: 1.3rem;
- }
+}
 
-.sendEmail__clause {
+.dataForm__clause {
     margin: 15px;
     font-size: 0.8rem;
     font-style: italic;
     font-family: var(--font-body);
 }
 
-.sendEmail__clause a {
+.dataForm__clause a {
     text-decoration: none;
-    color: #85dbf2;
+    color: var(--color-darkblue);
 }
 
 
 @media (max-width: 600px) {
-    .sendEmail__section {
-        height: 100%;
+    .contactSection {
+        height: auto;
     }
-    .sendEmail__infoBox {
+
+    .dataForm {
         height: 100%; 
     }
 
-    .sendEmail__form > input:first-child {
-        width: 60vw;
+    .dataForm__header {
+        font-size: 2rem;
+    }
+
+    .dataForm__textInfo {
+        font-size: 1.1rem;
     }
 }
