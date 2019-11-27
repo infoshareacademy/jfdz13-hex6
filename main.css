@@ -7,6 +7,7 @@
 html, body {
     font-size: 16px;
     height: 100%;
+    overflow-x: hidden;
 }
 
 :root {
@@ -129,4 +130,82 @@ html, body {
   height: 100%;
   width: 100%;
   text-align: center;
+}
+
+/* FUNCTION SECTION */
+
+.function-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #fefefe;
+  background: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  
+}
+
+.function-section__content{
+
+  word-wrap: break-word;
+  width: 100%;
+  text-align: center !important;
+  justify-content: center;
+  margin-left: 8rem;
+ 
+
+  
+}
+
+.function-section__title{
+  font-size: 30px;
+   font-family: 'Montserrat', sans-serif; 
+  /* font-family: 'Source Sans Pro', sans-serif; */
+  margin-bottom: 3rem;
+}
+
+.function-section__description{
+ 
+  font-family: 'Montserrat', sans-serif; 
+  font-size: 18px;
+}
+
+.accommodation-item{
+  width: 20%;
+  float: left;
+  margin: 2rem;
+
+}
+
+.food-item{
+  width: 20%;
+  float: left;
+  margin: 2rem;
+
+}
+
+.atraction-item{
+  width: 20%;
+  float: left;
+  margin: 2rem;
+ 
+}
+
+.flexible-item{
+  
+  width: 20%;
+  float: left;
+  margin: 2rem;
+}
+
+.function-section__icon{
+ width: 6rem;
+ height: 6rem;
+ margin-bottom: 1rem;
+ opacity: 0.8;
+
 }
