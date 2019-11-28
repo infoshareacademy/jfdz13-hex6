@@ -4,12 +4,14 @@
     box-sizing: border-box;
 }
     
-  html, body {
+html, body {
     font-size: 16px;
     height: 100%;
+    overflow-x: hidden;
 }
 
-  :root {
+:root {
+
     --color-primary: #fefefe;
     --color-yellow: #fed701;
     --color-darkblue: #02c9da;
@@ -18,6 +20,195 @@
     --gutter: 1rem;
     --font-header: 'Montserrat', sans-serif;
     --font-body: 'Source Sans Pro', sans-serif;
+}
+
+/* NAV */
+.navigation-container {
+    left: -48vh;
+    position: fixed;
+    transition: transform 0.4s;
+    width: 50vh;
+    font-family: var(--font-body);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-lightblue);
+    height: 50vh;
+    top: 25vh;
+}
+
+.navigation-container:hover {
+    transform: translateX(48vh);
+}
+
+.navigation__title {
+    cursor: default;
+    font-size: 1.5rem;
+    letter-spacing: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    height: 10%;
+    line-height: 30px;
+    position: absolute;
+    right: -10vh;
+    text-align: center;
+    top: 25vh;
+    transform: rotate(-90deg);
+    width: 10vh;
+}
+
+.navigation-list {
+    font-size: 2rem;
+    text-decoration: none;
+    list-style: none;
+    line-height: 4rem;
+}
+
+.navigation-list__item:hover {
+    font-size: 3rem;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) { /* jak ustawić eby menu rozwijało się po kliknięciu a nie najechaniu przymniejszych rodzielczościach? */
+    .navigation-container:hover {
+        transform: none;
+    }
+
+    .navigation-container:active {
+        transform: translateX(48vh);
+    }
+}
+  
+/* HERO SECTION */
+
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100vw;
+  height: 100vh;
+  background-image: url(img/hero_background.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* .temp-navbar {
+  width: 100%;
+  height: 100px;
+  background-color: hotpink;
+  display: block;
+} */
+
+.hero-section__content {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  flex-direction: column;
+}
+
+.hero-section__title {
+  font-family: var(--font-header);
+  font-size: 7rem;
+  margin-bottom: 5rem;
+}
+
+.hero-section__description {
+  font-family: var(--font-body);
+  font-size: 3rem;
+}
+
+.hero-section__description-help {
+  font-family: var(--font-body);
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.hero-section__description-icon {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+
+/* FUNCTION SECTION */
+
+.function-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #fefefe;
+  background: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  
+}
+
+.function-section__content{
+
+  word-wrap: break-word;
+  width: 100%;
+  text-align: center !important;
+  justify-content: center;
+  margin-left: 8rem;
+ 
+
+  
+}
+
+.function-section__title{
+  font-size: 30px;
+   font-family: 'Montserrat', sans-serif; 
+  /* font-family: 'Source Sans Pro', sans-serif; */
+  margin-bottom: 3rem;
+}
+
+.function-section__description{
+ 
+  font-family: 'Montserrat', sans-serif; 
+  font-size: 18px;
+}
+
+.accommodation-item{
+  width: 20%;
+  float: left;
+  margin: 2rem;
+
+}
+
+.food-item{
+  width: 20%;
+  float: left;
+  margin: 2rem;
+
+}
+
+.atraction-item{
+  width: 20%;
+  float: left;
+  margin: 2rem;
+ 
+}
+
+.flexible-item{
+  
+  width: 20%;
+  float: left;
+  margin: 2rem;
+}
+
+.function-section__icon{
+ width: 6rem;
+ height: 6rem;
+ margin-bottom: 1rem;
+ opacity: 0.8;
+
 }
 
 /* TEAM SECTION */
@@ -167,3 +358,4 @@ top: 0;
   margin-bottom: 1rem;
   fill: var(--color-primary);
 }
+
