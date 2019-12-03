@@ -21,7 +21,7 @@ html, body {
 }
 
 /* NAV */
-#navigationContainer {
+.navigation-container {
   position: fixed;
   transition: transform 0.4s;
   width: 30vh;
@@ -35,19 +35,19 @@ html, body {
   z-index: 2;
 }
 
-.navigationContainer--closed {
+.navigation-container--closed {
   left: -30vh;
 }
 
-.navigationContainer--closed:hover {
+.navigation-container--closed:hover {
   transform: translateX(28vh);
 }
 
-.navigationContainer--open {
+.navigation-container--open {
   transform: translateX(0vh);
 }
 
-.navigationTitle {
+.navigation-title {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -60,7 +60,7 @@ html, body {
   background: var(--color-primary);
 }
 
-.navigationTitle__text {
+.navigation-title__text {
   color: var(--color-dark);
   cursor: pointer;
   font-size: 1.3rem;
@@ -71,7 +71,7 @@ html, body {
   margin-left: 0.6rem;;
 }
 
-.navigationList {
+.navigation-list {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -83,22 +83,22 @@ html, body {
   text-transform: uppercase;
 }
 
-.navigationLink {
+.navigation-link {
   text-decoration: none;
   color: var(--color-dark);
   width: 100%;
   font-weight: bold;
 }
 
-.navigationLink:hover {
+.navigation-link:hover {
   color: var(--color-darkblue);
 }
 
-.navigationLink__icon{
+.navigation-link__icon{
   display: none;
 }
 
-.navigationLink__text {
+.navigation-link__text {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -106,56 +106,51 @@ html, body {
 }
 
 @media (max-width: 768px) {
-  #navigationContainer {
+  .navigation-container {
     width: 100px;
     height: 100vh;
     flex-direction: column;
     justify-content: flex-start;
   }
 
-  .navigationContainer--closed {
-    display: none;
+  .navigation-container--closed {
     left: -100px;
   }
 
-  .navigationContainer--closed:hover {
+  .navigation-container--closed:hover {
       transform: none;
   }
 
-  .navigationContainer--open {
-    transform: translateX(0vh);
-  }
-
-  .navigationTitle {
+  .navigation-title {
     height: 4%;
     width: 12vh;
     right: -7vh;
     top: 6vh;
   }
 
-  .navigationTitle__text {
+  .navigation-title__text {
     font-size: 1rem;
     letter-spacing: 0.3rem;
     margin-left: 0.3rem;
     margin-top: 0.5rem;
   }
 
-  .navigationContent {
+  .navigation-content {
     margin-top: 40px;
   }
 
-  .navigationLink__icon {
+  .navigation-link__icon {
     display: block;
     height: 2rem;
     margin: 20px 0;
     fill: var(--color-dark);
   }
 
-  .navigationLink__icon:hover {
+  .navigation-link__icon:hover {
     fill: var(--color-darkblue);
   }
 
-  .navigationLink__text {
+  .navigation-link__text {
     display: none;
   }
 }

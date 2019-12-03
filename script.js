@@ -5,10 +5,12 @@ const navigationContainer = document.getElementById("navigationContainer");
 
 navigationContainer.onclick = function () {
     if (mobileViewport.matches) {
-        if (navigationContainer.className === "navigationContainer--closed") {
-            navigationContainer.className = "navigationContainer--open";
+        if (navigationContainer.className === "navigation-container navigation-container--closed") {
+            navigationContainer.className = "navigation-container navigation-container--open";
+            navigationContainer.style.transform = 'translateX(0vh)';
         } else {
-            navigationContainer.className = "navigationContainer--closed";
+            navigationContainer.className = "navigation-container navigation-container--closed";
+            navigationContainer.style.transform = 'translateX(0vh)';
         }
     }
 };
