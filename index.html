@@ -13,30 +13,31 @@
 
   <section class="hero-section"></section>
 
-    <section class="contactSection">
+  <section class="contactSection">
 
-      <div class="dataForm">
+    <section class="dataForm">
 
-        <h2 class="dataForm__header">Zapis na premierę</h2>
+      <div class="dataForm__infoBlock">
+        <div class="dataForm__infoBlock--background">
 
-        <p class="dataForm__textInfo">Dziękujemy za zainteresowanie. Premiera strony już wkrótce. Zostaw nam swój adress e-mail, a poinformujemy Cię o niej w pierwszej kolejności.</p>
+          <h2 class="dataForm__header">You're invited!</h2>
 
-        <form action="_blank" class="dataForm__form">
-          <label class="label" for="fname">First Name</label>
-          <input class="dataBox" type="text" id="fname" name="firstname" placeholder=" Your name.." required>
-          <label class="label" for="lname">Last Name</label>
-          <input class="dataBox" type="text" id="lname" name="lastname" placeholder=" Your last name.." required>
-          <label class="label" for="email">E-mail address</label>
-          <input class="dataBox" type="email" id='email' placeholder=" Enter e-mail..." name="emailaddress" required>
-          <div class="agreementBlock" ><input class="checkbox" type="checkbox" name="agreement" required><span class="agreementText">Wyrażam zgodę na przetwarzanie przez QUO VADIS moich danych osobowych zawartych w powyższym formularzu w celu przedstawienia oferty.</span></div>
-          <input class="submitInput" type="submit" value="Zapisz się">
-        </form>
+          <p class="dataForm__textInfo">Be the first to be informed about QUO VADIS app premiere</p>
 
-        <p class="dataForm__clause">Administratorem danych osobowych jest <a href="#">QUO VADIS</a>. Podanie danych osobowych jest dobrowolne, ale niezbędne do realizacji przesłanego zgłoszenia. Podstawa prawna, cel, okres przetwarzania danych osobowych oraz uprawnienia przysługujące Użytkownikowi, a także inne ważne informacje dotyczące zasad przetwarzania danych osobowych są szczegółowo określone w <a href="#">Polityce prywatności</a> QUO VADIS.</p>
-
+        </div>
       </div>
 
+      <form action="_blank" class="dataForm__form">
+        <input class="dataBox" type="text" name="firstname" placeholder=" Leave us your first name..." required>
+        <input class="dataBox" type="text" name="lastname" placeholder="...and last name..." required>
+        <input class="dataBox" type="email" placeholder="...and e-mail address" name="emailaddress" required>
+        <div class="agreementBlock"><input class="checkbox" type="checkbox" name="agreement" required><span class="agreementText">I agree to the processing by QUO VADIS of my personal data contained in the above form in order to be informed about the app premiere.</span></div>
+        <input class="submitInput" type="submit" value="SIGN UP">
+      </form>
+
     </section>
+
+  </section>
 
   <footer class="footer"></footer>
 
