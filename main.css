@@ -39,7 +39,6 @@ html, body {
   font-family: var(--font-header);
   font-size: 3rem;
   margin-bottom: 1rem;
-
 }
 
 .team-section__story {
@@ -50,7 +49,6 @@ html, body {
   padding-right: 3rem;
   width: 100%;
 }
-
 
 .link {
   text-decoration: none;
@@ -67,7 +65,6 @@ html, body {
   text-decoration: none;
   background-size: 100% .2rem;
 }
-
 
 .team-section__container1 {
   display: flex;
@@ -133,7 +130,6 @@ html, body {
 
 .team-member__photo {
   max-width: 100%;
-  max-height: auto;
 }
 
 .team-member__content {
@@ -195,12 +191,6 @@ html, body {
   fill: var(--color-darkblue);
 }
 
-.team-section__tymczas {
-  height: 5rem;
-}
-
-
-
 @media screen and (max-width:900px) and (min-width:501px) {
 
   .team-section__title {
@@ -230,7 +220,6 @@ html, body {
     width: 1.5rem;
     height: 1.5rem;
   }
-
 }
 
 @media screen and (max-width:500px) {
@@ -254,7 +243,6 @@ html, body {
   .team-section__story {
     font-size: 1.2rem;
     padding: 1rem;
-  }
-    
+  }  
 } 
   
