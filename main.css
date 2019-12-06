@@ -17,13 +17,11 @@ html, body {
   --color-darkblue: #02c9da;
   --color-lightblue: #85dbf2;
   --color-dark: #191919;
+  --gradient: linear-gradient(to bottom right, #fed701 0%, #02c9da 100%);
   --gutter: 1rem;
   --font-header: 'Montserrat', sans-serif;
   --font-body: 'Source Sans Pro', sans-serif;
 }
-
-
-
 
 /* TEAM SECTION */
 
@@ -41,14 +39,35 @@ html, body {
   font-family: var(--font-header);
   font-size: 3rem;
   margin-bottom: 1rem;
+
 }
 
-.team-section__description {
+.team-section__story {
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: 1.2rem;
   margin-bottom: 1rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
   width: 100%;
 }
+
+
+.link {
+  text-decoration: none;
+  color: var(--color-darkblue);
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% .2rem;
+  transition: background-size cubic-bezier(0,.5,0,1) 0.3s;
+}
+
+.link:hover,
+.link:focus {
+  text-decoration: none;
+  background-size: 100% .2rem;
+}
+
 
 .team-section__container1 {
   display: flex;
@@ -98,16 +117,16 @@ html, body {
   position: absolute;
   height: 100%;
   width: 100%;
-  left: 170%;
+  right: 170%;
   top: 0;
-  transform: skewX(45deg);
+  transform: skewX(-45deg);
   transition: all 1s ease 0s;
   background-color: var(--color-darkblue);
   z-index: 1;
 }
 
 .team-member:hover::after {
-  left: -170%;
+  right: -170%;
   top: 0;
 }
 
@@ -136,7 +155,7 @@ html, body {
   opacity: 1;
 }
 
-.team-member h3 {
+.team-member__name {
   display: block;
   text-transform: uppercase;
   letter-spacing: .5rem;
@@ -145,7 +164,7 @@ html, body {
   margin-bottom: 1rem;
 }
 
-.team-member h4 {
+.team-member__description {
   display: block;
   text-transform: lowercase;
   letter-spacing: .25rem;
@@ -166,10 +185,6 @@ html, body {
   padding-right: 3rem;
 }
 
-.team-member__description {
-  margin-bottom: 1rem;
-}
-
 .team-member__icon {
   width: 2rem;
   height: 2rem;
@@ -184,23 +199,25 @@ html, body {
   height: 5rem;
 }
 
+
+
 @media screen and (max-width:900px) and (min-width:501px) {
 
   .team-section__title {
-    font-size: 1.25rem;
+    font-size: 2rem;
   }
     
-  .team-section__description {
-  font-size: .75rem;
+  .team-section__story {
+  font-size: 1.2rem;
   padding: 1rem;
   }
   
-  .team-member h3 {
+  .team-member__name {
     font-size: 1rem;
     margin-bottom: .5rem;
   }
     
-  .team-member h4 {
+  .team-member__description {
     font-size: .75rem;
     margin-bottom: 2rem;
   }
@@ -234,8 +251,8 @@ html, body {
     font-size: 2rem;
   }
       
-  .team-section__description {
-    font-size: 1rem;
+  .team-section__story {
+    font-size: 1.2rem;
     padding: 1rem;
   }
     
