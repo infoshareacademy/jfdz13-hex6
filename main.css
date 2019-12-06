@@ -1,24 +1,148 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-  
+
 html, body {
-  font-size: 16px;
-  height: 100%;
+    font-size: 16px;
+    height: 100%;
 }
 
 :root {
-  --color-primary: #fefefe;
-  --color-yellow: #fed701;
-  --color-darkblue: #02c9da;
-  --color-lightblue: #85dbf2;
-  --color-dark: #191919;
-  --gutter: 1rem;
-  --font-header: 'Montserrat', sans-serif;
-  --font-body: 'Source Sans Pro', sans-serif;
+    --color-primary: #fefefe;
+    --color-yellow: #fed701;
+    --color-darkblue: rgb(2, 201, 218);
+    --color-lightblue: #85dbf2;
+    --color-dark: rgb(25, 25, 25);
+    --gutter: 1rem;
+    --font-header: 'Montserrat', sans-serif;
+    --font-body: 'Source Sans Pro', sans-serif;
 }
+
+
+/*Zapis na premierę*/
+
+
+.contactSection {
+    background: var(--color-primary);
+}
+
+.dataForm {
+    display: flex;
+    color: var(--color-dark);
+
+}
+
+.dataForm__infoBlock {
+    flex: 1;
+    background-image: url(./img/20190823_173242m.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.dataForm__infoBlock--background {
+    background-color: rgba(2, 201, 218, 0.6);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    color: white;
+    justify-content: center;
+}
+
+.dataForm__header {
+    font-size: 3rem;
+    font-family: var(--font-body);
+    text-align: right;
+    padding: 10px;
+    max-width: 400px;
+}
+
+.dataForm__textInfo {
+    font-size: 2.2rem;
+    padding: 15px;
+    text-align: right;
+    font-family: var(--font-body);
+    max-width: 400px;
+    line-height: 3rem;
+}
+
+.dataForm__form {
+    flex: 1;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.dataForm__form .dataBox {
+    margin: 10px;
+    height: 50px;
+    border-radius: 25px;
+    padding-left: 10px;
+    border-style: double;
+    border-color: var(--color-lightblue);
+    font-family: var(--font-body);
+    font-size: 1.5rem;
+    color: var(--color-dark);
+    max-width: 600px;
+}
+
+.dataForm__form .dataBox:hover {
+    border-color: var(--color-darkblue);
+}
+
+.dataForm__form .agreementBlock {
+    display: flex;
+    padding-left: 10px;
+    align-items: center;
+}
+
+.dataForm__form .agreementBlock .agreementText {
+    padding: 10px;
+    font-family: var(--font-body);
+    max-width: 600px;
+}
+
+.dataForm__form .submitInput {
+    background-color: var(--color-lightblue);
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    margin-left: 10px;
+    font-family: var(--font-body);
+    font-weight: bold;
+    color: var(--color-primary);
+    width: 50%;
+}
+
+.dataForm__form .submitInput:hover {
+     background-color: var(--color-darkblue);
+}
+
+
+@media (max-width: 600px) {
+    .dataForm {
+        flex-direction: column;
+    }
+
+    .dataForm__header {
+        font-size: 2rem;
+    }
+
+    .dataForm__textInfo {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    .dataForm__form .dataBox {
+        font-size: 1.2rem;
+    }
+}
+
+  
 
 /* NAV */
 .navigation-container {
