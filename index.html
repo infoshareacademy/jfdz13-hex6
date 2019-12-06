@@ -7,25 +7,42 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Quo Vadis</title>
 
-  <link href="https://fonts.googleapis.com/css?family=Montserrat|Source+Sans+Pro&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:900|Source+Sans+Pro:300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="main.css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat|Source+Sans+Pro&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-
 
 </head>
 
 <body>
   <!--NAV--> 
-  <nav class="navigation-container">
+  <nav class="navigation-container navigation-container--closed" id="navigationContainer">
 
-    <div class="navigation__title">Menu</div>
-    <div class="navigation__content">
+  <div class="navigation-title navigation-title--closed" id="navigationTitle">
+    <div class="navigation-title__text">
+        <svg class="navigation_icon" viewBox="-5 -7 24 24" width="24" height="24" preserveAspectRatio="xMinYMin" class="jam jam-menu"><path d='M1 0h5a1 1 0 1 1 0 2H1a1 1 0 1 1 0-2zm7 8h5a1 1 0 0 1 0 2H8a1 1 0 1 1 0-2zM1 4h12a1 1 0 0 1 0 2H1a1 1 0 1 1 0-2z' /></svg>
+      </div>
+  </div>
+    <div class="navigation-content">
       <ul class="navigation-list">
-        <li class="navigation-list__item">Main</li>
-        <li class="navigation-list__item">Search</li>
-        <li class="navigation-list__item">About Us</li>
-        <li class="navigation-list__item">Contact</li>
+        <li class="navigation-list__item">
+          <a class="navigation-link" href="*">
+            <div class="navigation-link__text">Home</div>
+          </a>
+        </li>
+        <li class="navigation-list__item">
+          <a class="navigation-link" href="*">
+            <div class="navigation-link__text">Search</div>
+          </a>
+        </li>
+        <li class="navigation-list__item">
+          <a class="navigation-link" href="*">
+            <div class="navigation-link__text">About Us</div>
+          </a>
+        </li>
+        <li class="navigation-list__item">
+          <a class="navigation-link" href="*">
+            <div class="navigation-link__text">Contact</div>
+          </a>
+        </li>
       </ul>
     </div>
   </nav>
@@ -51,7 +68,12 @@
     </article>
   </section>
 
+
   <footer class="footer"></footer>
+
+
+
+  <script type="text/javascript" src="script.js"></script>
 
 </body>
 
