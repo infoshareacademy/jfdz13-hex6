@@ -1,45 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Quo Vadis</title>
+
   <link href="https://fonts.googleapis.com/css?family=Montserrat:900|Source+Sans+Pro:300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="main.css">
-</head>
-<body>
-  <nav class="navigation"></nav>
 
-  <section class="hero-section"></section>
+</head>
+
+<body>
+
+  <!--NAV--> 
+  <nav class="navigation-container navigation-container--closed" id="navigationContainer">
+
+  <div class="navigation-title navigation-title--closed" id="navigationTitle">
+    <div class="navigation-title__text">
+        <svg class="navigation_icon" viewBox="-5 -7 24 24" width="24" height="24" preserveAspectRatio="xMinYMin" class="jam jam-menu"><path d='M1 0h5a1 1 0 1 1 0 2H1a1 1 0 1 1 0-2zm7 8h5a1 1 0 0 1 0 2H8a1 1 0 1 1 0-2zM1 4h12a1 1 0 0 1 0 2H1a1 1 0 1 1 0-2z' /></svg>
+      </div>
+  </div>
+    <div class="navigation-content">
+      <ul class="navigation-list">
+        <li class="navigation-list__item">
+          <a class="navigation-link" href="*">
+            <div class="navigation-link__text">Home</div>
+          </a>
+        </li>
+        <li class="navigation-list__item">
+          <a class="navigation-link" href="*">
+            <div class="navigation-link__text">Search</div>
+          </a>
+        </li>
+        <li class="navigation-list__item">
+          <a class="navigation-link" href="*">
+            <div class="navigation-link__text">About Us</div>
+          </a>
+        </li>
+        <li class="navigation-list__item">
+          <a class="navigation-link" href="*">
+            <div class="navigation-link__text">Contact</div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- <div class="temp-navbar"></div> -->
+  <section class="hero-section">
+    <article class="hero-section__content">
+      <h1 class="hero-section__title">Quo Vadis</h1>
+      <p class="hero-section__description">Want to visit Tricity? Need to plan the trip?</p>
+      <p class="hero-section__description-help">We can help!</p>
+      <span class="hero-section__description-icon">
+        <a href="#" class="hero-section__desctiption-icon-link">
+          <svg id="Layer" enable-background="new 0 0 64 64" height="256" viewBox="0 0 64 64" width="512"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="m32 56c13.233 0 24-10.766 24-24s-10.767-24-24-24-24 10.766-24 24 10.767 24 24 24zm0-44c11.028 0 20 8.972 20 20s-8.972 20-20 20-20-8.972-20-20 8.972-20 20-20z" />
+            <path
+              d="m29.172 30.828c.782.782 1.809 1.172 2.835 1.172 1.019 0 2.034-.386 2.803-1.154l6.586-6.414c.791-.771.808-2.037.037-2.828-.77-.791-2.037-.808-2.828-.037l-6.623 6.414-6.586-6.414c-.791-.771-2.059-.754-2.828.037-.771.792-.754 2.058.037 2.828z" />
+            <path
+              d="m29.172 41.828c.782.782 1.809 1.172 2.835 1.172 1.019 0 2.034-.386 2.803-1.154l6.586-6.414c.791-.771.808-2.037.037-2.828-.77-.791-2.037-.808-2.828-.037l-6.623 6.414-6.586-6.414c-.791-.771-2.059-.754-2.828.037-.771.792-.754 2.058.037 2.828z" />
+            </svg>
+        </a>
+      </span>
+    </article>
+  </section>
+
 
   <section class="contactSection">
 
-    <section class="dataForm">
-
-      <div class="dataForm__infoBlock">
-        <div class="dataForm__infoBlock--background">
-
-          <h2 class="dataForm__header">You're invited!</h2>
-
-          <p class="dataForm__textInfo">Be the first to be informed about QUO VADIS app premiere</p>
-
+      <section class="dataForm">
+  
+        <div class="dataForm__infoBlock">
+          <div class="dataForm__infoBlock--background">
+  
+            <h2 class="dataForm__header">You're invited!</h2>
+  
+            <p class="dataForm__textInfo">Be the first to be informed about QUO VADIS app premiere</p>
+  
+          </div>
         </div>
-      </div>
-
-      <form action="_blank" class="dataForm__form">
-        <input class="dataBox" type="text" name="firstname" placeholder=" Leave us your first name..." required>
-        <input class="dataBox" type="text" name="lastname" placeholder="...and last name..." required>
-        <input class="dataBox" type="email" placeholder="...and e-mail address" name="emailaddress" required>
-        <div class="agreementBlock"><input class="checkbox" type="checkbox" name="agreement" required><span class="agreementText">I agree to the processing by QUO VADIS of my personal data contained in the above form in order to be informed about the app premiere.</span></div>
-        <input class="submitInput" type="submit" value="SIGN UP">
-      </form>
-
+  
+        <form action="_blank" class="dataForm__form">
+          <input class="dataBox" type="text" name="firstname" placeholder=" Leave us your first name..." required>
+          <input class="dataBox" type="text" name="lastname" placeholder="...and last name..." required>
+          <input class="dataBox" type="email" placeholder="...and e-mail address" name="emailaddress" required>
+          <div class="agreementBlock"><input class="checkbox" type="checkbox" name="agreement" required><span class="agreementText">I agree to the processing by QUO VADIS of my personal data contained in the above form in order to be informed about the app premiere.</span></div>
+          <input class="submitInput" type="submit" value="SIGN UP">
+        </form>
+  
+      </section>
+  
     </section>
-
-  </section>
+  
+  
 
   <footer class="footer"></footer>
 
+
+
+  <script type="text/javascript" src="script.js"></script>
+
 </body>
+
 </html>
