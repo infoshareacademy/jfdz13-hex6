@@ -52,24 +52,23 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 5%;
-  width: 20vh;
-  right: -12.3vh;
-  top: 10vh;
-  transform: rotate(-90deg);
+  height: auto;
+  width: auto;
+  right: -7.3vh;
+  top: 0;
 }
 
 .navigation-title__text {
-  margin-left: 0.6rem;
-  padding: 10px;
   background: var(--color-primary);
   cursor: pointer;
-  font-size: 1.3rem;
-  color: var(--color-dark);
-  letter-spacing: 0.7rem;
-  text-transform: uppercase;
-  font-weight: 600;
-  line-height: 30px;
+  fill: var(--color-dark);
+  margin: auto;
+}
+
+.navigation_icon {
+  height: 8vh;
+  width: auto;
+  margin: auto;
 }
 
 .navigation-list {
@@ -82,6 +81,20 @@ html, body {
   list-style: none;
   line-height: 4rem;
   text-transform: uppercase;
+}
+
+.navigation-list__item {
+  height: 50px;
+  margin-bottom: 10px;
+  background-image: linear-gradient(var(--color-darkblue), var(--color-darkblue));
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% .2rem;
+  transition: background-size cubic-bezier(0,.5,0,1) 0.3s;
+}
+
+.navigation-list__item:hover {
+  background-size: 100% .2rem;
 }
 
 .navigation-link {
@@ -109,7 +122,7 @@ html, body {
 @media (max-width: 768px) {
   .navigation-container {
       width: 100vw;
-      height: 70px;
+      height: 60px;
       justify-content: flex-start;
   }
 
@@ -122,23 +135,17 @@ html, body {
   }
 
   .navigation-title {
-      height: 30px;
+      height: 20px;
       width: 20px;
-      top: 20px;
+      top: 0;
   }
 
   .navigation-title--closed {
-      right: -20px;
+      right: -32px;
   }
+
   .navigation-title--open {
       right: 20px;
-    }
-
-  .navigation-title__text {
-      margin-top: 10px;
-      font-size: 0.9rem;
-      letter-spacing: 0.3rem;
- 
   }
 
   .navigation-list {
