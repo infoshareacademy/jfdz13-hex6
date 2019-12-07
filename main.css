@@ -7,7 +7,6 @@
 html,
 body {
   font-size: 16px;
-  /* height: 100%; */
 }
 
 :root {
@@ -20,7 +19,6 @@ body {
   --font-header: 'Montserrat', sans-serif;
   --font-body: 'Source Sans Pro', sans-serif;
 }
-
 /* HERO SECTION */
 
 .hero-section {
@@ -34,7 +32,6 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover; */
-
 }
 
 .hero-section__content {
@@ -45,8 +42,6 @@ body {
   /* width: 100%; */
   color: var(--color-primary);
   /* margin-top: 10rem; */
-
-  border: 1px solid red;
 }
 
 
@@ -60,8 +55,6 @@ body {
   /* align-items: flex-start; */
   fill: var(--color-primary);
   margin-bottom: 1rem;
-  border: 1px solid red;
-
 }
 
 .logo {
@@ -75,7 +68,6 @@ body {
   height: 100vh;
   overflow: hidden;
   z-index: -2;
-
 }
 
 .fullscreen-bg__video {
@@ -118,8 +110,6 @@ body {
   font-family: var(--font-header);
   font-size: 3.5rem;
   text-align: center;
-  border: 1px solid red;
-
 }
 
 .hero-section__description-help {
@@ -128,10 +118,7 @@ body {
   font-weight: 600;
   text-align: center;
   margin-top: 1rem;
-
-  border: 1px solid red;
-  text-shadow: 0px 0px 6px rgba(255,255,255,0.7);
-
+  text-shadow: 0px 0px 6px rgba(255, 255, 255, 0.7);
 }
 
 .hero-section__description-icon {
@@ -140,9 +127,6 @@ body {
   text-align: center;
   color: var(--color-primary);
   /* margin-top: 5rem; */
-  border: 1px solid red;
-
-
 }
 
 .scroll-arrow {
@@ -154,6 +138,8 @@ body {
 .scroll-arrow:hover {
   animation: nudge .5s linear;
 }
+
+/* HERO SECTION MEDIA QUERIES */
 
 @keyframes nudge {
   0% {
@@ -167,23 +153,22 @@ body {
   }
 }
 
-
-
 /* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
+/* @media only screen and (max-width: 600px) {
   .hero-section__description {font-size: 2rem;}
-
-}
+  .hero-section__description-help {font-size: 3rem;}
+} */
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
-  .hero-section__content {background: green;}
-}
+/* @media only screen and (min-width: 600px) {
+  .hero-section__description {font-size: 2rem;}
+  .hero-section__description-help {font-size: 3rem;}
+} */
 
 /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
+/* @media only screen and (min-width: 768px) {
   .hero-section__content {background: blue;}
-} 
+}  */
 
 /* Large devices (laptops/desktops, 992px and up)
 @media only screen and (min-width: 992px) {
@@ -194,3 +179,41 @@ body {
 @media only screen and (min-width: 1200px) {
   .hero-section__content {background: pink;}
 } */
+
+@media (max-width: 979px) {
+  /* Selectors and styles affecting screens UP TO 979px (Desktop) */
+  .hero-section__description {
+    font-size: 2rem;
+  }
+  .hero-section__description-help {
+    font-size: 3rem;
+  }
+  .scroll-arrow {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
+@media (max-width: 767px) {
+
+  /* Selectors and styles affecting screens UP TO 767px (Tablet) */
+  .hero-section__description {
+    font-size: 1.5rem;
+  }
+  .hero-section__description-help {
+    font-size: 2.5rem;
+  }
+  .scroll-arrow {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+  /* Selectors and styles affecting screens UP TO 480px (Phone) */
+@media (max-width: 480px) {
+  .hero-section__description {
+    font-size: 2rem;
+  }
+  .hero-section__description-help {
+    font-size: 3rem;
+  }
+}
