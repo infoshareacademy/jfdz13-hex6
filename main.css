@@ -24,17 +24,17 @@ html, body {
 /*Zapis na premierę*/
 
 
-.contactSection {
+.contact-section {
     background: var(--color-primary);
 }
 
-.dataForm {
+.data-form {
     display: flex;
     color: var(--color-dark);
 
 }
 
-.dataForm__infoBlock {
+.data-form__info {
     flex: 1;
     background-image: url(./img/20190823_173242m.jpg);
     background-position: center center;
@@ -42,7 +42,7 @@ html, body {
     background-repeat: no-repeat;
 }
 
-.dataForm__infoBlock--background {
+.data-form__info-background {
     background-color: rgba(2, 201, 218, 0.6);
     height: 100%;
     display: flex;
@@ -52,16 +52,16 @@ html, body {
     justify-content: center;
 }
 
-.dataForm__header {
-    font-size: 3.5rem;
+.data-form__header {
+    font-size: 4rem;
     font-family: var(--font-body);
     text-align: right;
     padding: 10px;
     max-width: 400px;
 }
 
-.dataForm__textInfo {
-    font-size: 2.2rem;
+.data-form__text-info {
+    font-size: 2.5rem;
     padding: 15px;
     text-align: right;
     font-family: var(--font-body);
@@ -70,14 +70,14 @@ html, body {
     font-weight: 600;
 }
 
-.dataForm__form {
+.data-form__form {
     flex: 1;
     padding: 10px;
     display: flex;
     flex-direction: column;
 }
 
-.dataForm__form .dataBox {
+.data-box {
     margin: 10px;
     height: 80px;
     border-radius: 40px;
@@ -91,27 +91,27 @@ html, body {
     max-width: 600px;
 }
 
-.dataForm__form .dataBox:hover {
+.data-box:hover {
     border-color: var(--color-darkblue);
 }
 
-.dataForm__form .dataBox:focus {
+.data-box:focus {
   outline: none;
 }
 
-.dataForm__form .agreementBlock {
+.agreement-block {
     display: flex;
     padding-left: 10px;
     align-items: center;
 }
 
-.dataForm__form .agreementBlock .agreementText {
+.agreement-block .agreement-text {
     padding: 10px;
     font-family: var(--font-body);
     max-width: 600px;
 }
 
-.dataForm__form .submitInput {
+.data-form__form .submit-input {
     background-color: var(--color-lightblue);
     border: none;
     padding: 15px;
@@ -124,26 +124,26 @@ html, body {
     width: 50%;
 }
 
-.dataForm__form .submitInput:hover {
+.data-form__form .submit-input:hover {
      background-color: var(--color-darkblue);
 }
 
 
 @media (max-width: 600px) {
-    .dataForm {
+    .data-form {
         flex-direction: column;
     }
 
-    .dataForm__header {
+    .data-form__header {
         font-size: 2rem;
     }
 
-    .dataForm__textInfo {
+    .data-form__text-info {
         font-size: 1.5rem;
         line-height: 2rem;
     }
 
-    .dataForm__form .dataBox {
+    .data-form__form .data-box {
         font-size: 1.2rem;
     }
 }
