@@ -79,8 +79,9 @@ html, body {
 
 .dataForm__form .dataBox {
     margin: 10px;
-    height: 50px;
-    border-radius: 25px;
+    height: 80px;
+    border-radius: 40px;
+    border: 5px;
     padding-left: 10px;
     border-style: double;
     border-color: var(--color-lightblue);
