@@ -59,7 +59,7 @@ body {
   /* justify-content: flex-start; */
   /* align-items: flex-start; */
   fill: var(--color-primary);
-  /* margin: 5% 0; */
+  margin-bottom: 1rem;
   border: 1px solid red;
 
 }
@@ -185,12 +185,12 @@ body {
   .hero-section__content {background: blue;}
 } 
 
-/* Large devices (laptops/desktops, 992px and up) */
+/* Large devices (laptops/desktops, 992px and up)
 @media only screen and (min-width: 992px) {
   .hero-section__content {background: orange;}
-} 
+}  */
 
-/* Extra large devices (large laptops and desktops, 1200px and up) */
+/* Extra large devices (large laptops and desktops, 1200px and up)
 @media only screen and (min-width: 1200px) {
   .hero-section__content {background: pink;}
-}
+} */
