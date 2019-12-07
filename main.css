@@ -53,7 +53,7 @@ html, body {
 }
 
 .dataForm__header {
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-family: var(--font-body);
     text-align: right;
     padding: 10px;
@@ -67,6 +67,7 @@ html, body {
     font-family: var(--font-body);
     max-width: 400px;
     line-height: 3rem;
+    font-weight: 600;
 }
 
 .dataForm__form {
@@ -91,6 +92,10 @@ html, body {
 
 .dataForm__form .dataBox:hover {
     border-color: var(--color-darkblue);
+}
+
+.dataForm__form .dataBox:focus {
+  outline: none;
 }
 
 .dataForm__form .agreementBlock {
