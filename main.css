@@ -383,6 +383,7 @@ html, body {
     justify-content: center;
     align-items: center;
     margin: auto;
+    margin-bottom: 5rem;
   }
 
   .features-accommodation, .features-food, .features-attractions, .features-calendar {
