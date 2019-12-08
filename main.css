@@ -538,6 +538,7 @@ html, body {
   font-family: var(--font-header);
   font-size: 3rem;
   margin-bottom: 1rem;
+  margin-top: 5rem;
 }
 
 .team-section__story {
