@@ -59,7 +59,7 @@ html, body {
 }
 
 .navigation-title__text {
-  background: var(--color-primary);
+  background: rgb(254, 254, 254, 0.5);
   cursor: pointer;
   fill: var(--color-dark);
   margin: auto;
@@ -190,19 +190,201 @@ html, body {
     font-size: 0.8rem;
   }
 }
+
+/*FEATURES*/
+.features-container {
+  width: 100vw;
+  min-height: 500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 10rem;
+}
+
+.features-accommodation, .features-food, .features-attractions, .features-calendar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.features-accommodation__icon, .features-food__icon, .features-attractions__icon, .features-calendar__icon {
+  height: 6rem;
+  margin-top: 30px;
+  fill: var(--color-darkblue);
+}
+
+.features-accommodation__title, .features-food__title, .features-attractions__title, .features-calendar__title {
+  font-size: 2rem;
+  margin: 30px 0;
+  text-transform: uppercase;
+}
+
+.features-accommodation__text, .features-food__text, .features-attractions__text, .features-calendar__text {
+  font-size: 1rem;
+  text-align: center;
+  margin: 0 20px;
+}
+
+@media screen and (max-width: 1200px) {
+  .features-accommodation__icon, .features-food__icon, .features-attractions__icon, .features-calendar__icon {
+    height: 4rem;
+  }
+  
+  .features-accommodation__title, .features-food__title, .features-attractions__title, .features-calendar__title {
+    font-size: 1.5rem;
+    margin: 30px 0;
+  }
+  
+  .features-accommodation__text, .features-food__text, .features-attractions__text, .features-calendar__text {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 920px) {
+  .features-container {
+    flex-direction: column;
+    width: 70vw;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+  }
+
+  .features-accommodation, .features-food, .features-attractions, .features-calendar {
+    margin: 20px 0;
+  }
+}
 /* HERO SECTION */
 
 .hero-section {
-display: flex;
-align-items: center;
-justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
 
-width: 100vw;
-height: 100vh;
-background-image: url(img/hero_background.png);
-background-position: center;
-background-repeat: no-repeat;
-background-size: cover;
+.hero-section__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: var(--color-primary);
+}
+
+
+
+.logo-container {
+  max-width: 30%;
+  max-height: 30%;
+  fill: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.logo {
+  width: 100%;
+  height: 100%;
+}
+
+.fullscreen-bg {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -2;
+}
+
+.fullscreen-bg__video {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.fullscreen-bg__color-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: black;
+  width: 100%;
+  height: 100vh;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.hero-section__description {
+  font-family: var(--font-header);
+  font-size: 3.5rem;
+  text-align: center;
+}
+
+.hero-section__description-help {
+  font-family: var(--font-body);
+  font-size: 4rem;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 1rem;
+  text-shadow: 0px 0px 6px rgba(255, 255, 255, 0.7);
+}
+
+.hero-section__description-icon {
+  text-align: center;
+  color: var(--color-primary);
+}
+
+.scroll-arrow {
+  width: 4rem;
+  height: 4rem;
+  fill: var(--color-primary);
+}
+
+.scroll-arrow:hover {
+  animation: nudge .5s linear;
+}
+
+@keyframes nudge {
+  0% {
+    transform: rotate(-8deg);
+  }
+  33% {
+    transform: rotate(8deg);
+  }
+  66% {
+    transform: rotate(-8deg);
+  }
+}
+
+
+/* HERO SECTION MEDIA QUERIES */
+
+@media screen and (max-width:900px) and (min-width:601px) {
+  /* Selectors and styles affecting screens UP TO 979px (Desktop) */
+  .hero-section__description {
+    font-size: 2rem;
+  }
+  .hero-section__description-help {
+    font-size: 3rem;
+  }
+  .scroll-arrow {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+@media screen and (max-width:600px) {
+  /* Selectors and styles affecting screens UP TO 767px (Tablet) */
+  .hero-section__description {
+    font-size: 1.5rem;
+  }
+  .hero-section__description-help {
+    font-size: 2.5rem;
+  }
+  .scroll-arrow {
+    width: 3rem;
+    height: 3rem;
+  }
 }
 
 /* TEAM SECTION */
@@ -466,6 +648,7 @@ width: 100%;
 text-align: center;
 }
 
+
 /*Zapis na premierę*/
 
 .contactSection {
@@ -586,4 +769,3 @@ text-align: center;
     }
 }
 
-  
