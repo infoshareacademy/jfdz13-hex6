@@ -685,7 +685,7 @@ html, body {
   fill: var(--color-darkblue);
 }
 
-@media screen and (max-width:900px) and (min-width:501px) {
+@media screen and (max-width:900px) and (min-width:601px) {
 
   .team-section__title {
     font-size: 2rem;
@@ -716,7 +716,7 @@ html, body {
   }
 }
 
-@media screen and (max-width:500px) {
+@media screen and (max-width:600px) {
     
   .team-section__container1 {
     flex-wrap: wrap;
