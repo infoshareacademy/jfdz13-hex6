@@ -425,10 +425,11 @@ html, body {
 
 .fullscreen-bg {
   position: absolute;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   overflow: hidden;
   z-index: -2;
+
 }
 
 .fullscreen-bg__video {
