@@ -189,7 +189,7 @@ html, body {
 }
 
 .navigation-title__text {
-  background: var(--color-primary);
+  background: rgb(254, 254, 254, 0.5);
   cursor: pointer;
   fill: var(--color-dark);
   margin: auto;
@@ -318,6 +318,70 @@ html, body {
     width: 70vw;
     margin-left: 6vw;
     font-size: 0.8rem;
+  }
+}
+
+/*FEATURES*/
+.features-container {
+  width: 100vw;
+  min-height: 500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 10rem;
+}
+
+.features-accommodation, .features-food, .features-attractions, .features-calendar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.features-accommodation__icon, .features-food__icon, .features-attractions__icon, .features-calendar__icon {
+  height: 6rem;
+  margin-top: 30px;
+  fill: var(--color-darkblue);
+}
+
+.features-accommodation__title, .features-food__title, .features-attractions__title, .features-calendar__title {
+  font-size: 2rem;
+  margin: 30px 0;
+  text-transform: uppercase;
+}
+
+.features-accommodation__text, .features-food__text, .features-attractions__text, .features-calendar__text {
+  font-size: 1rem;
+  text-align: center;
+  margin: 0 20px;
+}
+
+@media screen and (max-width: 1200px) {
+  .features-accommodation__icon, .features-food__icon, .features-attractions__icon, .features-calendar__icon {
+    height: 4rem;
+  }
+  
+  .features-accommodation__title, .features-food__title, .features-attractions__title, .features-calendar__title {
+    font-size: 1.5rem;
+    margin: 30px 0;
+  }
+  
+  .features-accommodation__text, .features-food__text, .features-attractions__text, .features-calendar__text {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 920px) {
+  .features-container {
+    flex-direction: column;
+    width: 70vw;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+  }
+
+  .features-accommodation, .features-food, .features-attractions, .features-calendar {
+    margin: 20px 0;
   }
 }
 /* HERO SECTION */
