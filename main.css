@@ -753,9 +753,9 @@ html, body {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  padding-top: 2rem;
+  padding: 2rem 0;
   margin-top: 2rem;
-  border-top: double 6px;
+  border: double 6px;
   border-color: var(--color-lightblue);
   font-family: var(--font-body);
   font-size: 1.1rem;
@@ -767,12 +767,45 @@ html, body {
   flex-direction: column;
   align-items: center;
 }
+
 .footer-phone__icon , .footer-adress__icon, .footer-mail__icon {
   height: 4vh;
   width: auto;
 }
 
 .footer-phone__text, .footer-adress__text, .footer-mail__text {
-  margin: 15px 0;
+  margin-top: 15px;
   text-align: center;
+}
+
+@media screen and (max-width:600px) {
+  .footer {
+    font-size: 0.9rem;
+    padding: 1rem 0;
+  }
+  
+  .footer-phone__icon , .footer-adress__icon, .footer-mail__icon {
+    height: 3vh;
+  }
+}
+
+@media screen and (max-width:350px) {
+ .footer {
+   flex-direction: column;
+   align-items: flex-start;
+   padding-left: 50px;
+ }
+
+ .footer-phone, .footer-adress, .footer-mail {
+    flex-direction: row;
+    padding: 10px 0;
+ }
+
+.footer-phone__icon , .footer-adress__icon, .footer-mail__icon {
+  height: 5vh;
+  margin-right: 2rem;
+}
+
+.footer-phone__text, .footer-adress__text, .footer-mail__text {
+  margin: 0;
 }
