@@ -747,3 +747,32 @@ html, body {
     padding: 1rem;
   }  
 } 
+
+/* FOOTER */
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-top: 2rem;
+  margin-top: 2rem;
+  border-top: double 6px;
+  border-color: var(--color-lightblue);
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  line-height: 1.6rem;
+}
+
+.footer-phone, .footer-adress, .footer-mail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.footer-phone__icon , .footer-adress__icon, .footer-mail__icon {
+  height: 4vh;
+  width: auto;
+}
+
+.footer-phone__text, .footer-adress__text, .footer-mail__text {
+  margin: 15px 0;
+  text-align: center;
+}
