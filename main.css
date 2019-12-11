@@ -801,11 +801,12 @@ html, body {
     padding: 10px 0;
  }
 
-.footer-phone__icon , .footer-adress__icon, .footer-mail__icon {
-  height: 5vh;
-  margin-right: 2rem;
-}
+  .footer-phone__icon , .footer-adress__icon, .footer-mail__icon {
+    height: 5vh;
+    margin-right: 2rem;
+  }
 
-.footer-phone__text, .footer-adress__text, .footer-mail__text {
-  margin: 0;
+  .footer-phone__text, .footer-adress__text, .footer-mail__text {
+    margin: 0;
+  }
 }
