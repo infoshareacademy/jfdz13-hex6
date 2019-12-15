@@ -363,6 +363,23 @@ text-align: center;
 display: flex;
 flex-direction: column;
 align-items: center;
+
+}
+
+.features-accommodation:hover .features-accommodation__icon{
+  height: 4.5rem;
+}
+
+.features-food:hover .features-food__icon{
+  height: 4.5rem;
+}
+
+.features-attractions:hover .features-attractions__icon{
+  height: 4.5rem;
+}
+
+.features-calendar:hover .features-calendar__icon{
+  height: 4.5rem;
 }
 
 .features-food, .features-attractions, .features-calendar {
@@ -382,23 +399,6 @@ margin-top: 30px;
 fill: var(--color-darkblue);
 transition: 0.4s;
 }
-
-.features-accommodation__icon:hover{
-  height: 4.5rem;
-}
-
-.features-food__icon:hover{
-  height: 4.5rem;
-}
-
-.features-attractions__icon:hover{
-  height: 4.5rem;
-}
-
-.features-calendar__icon:hover{
-  height: 4.5rem;
-}
-
 
 
 .features-accommodation__title, .features-food__title, .features-attractions__title, .features-calendar__title {
