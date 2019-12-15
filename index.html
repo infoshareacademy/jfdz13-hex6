@@ -14,13 +14,13 @@
 <body>
 
   <!--NAV--> 
-  <nav class="navigation-container navigation-container--closed" id="navigationContainer">
+  <div class="navigation-title" id="navigationTitle">
+      <div class="navigation-title__text">
+          <svg class="navigation_icon" viewBox="-5 -7 24 24" width="24" height="24" preserveAspectRatio="xMinYMin"><path d='M1 0h5a1 1 0 1 1 0 2H1a1 1 0 1 1 0-2zm7 8h5a1 1 0 0 1 0 2H8a1 1 0 1 1 0-2zM1 4h12a1 1 0 0 1 0 2H1a1 1 0 1 1 0-2z' /></svg>
+        </div>
+    </div> 
 
-  <div class="navigation-title navigation-title--closed" id="navigationTitle">
-    <div class="navigation-title__text">
-        <svg class="navigation_icon" viewBox="-5 -7 24 24" width="24" height="24" preserveAspectRatio="xMinYMin"><path d='M1 0h5a1 1 0 1 1 0 2H1a1 1 0 1 1 0-2zm7 8h5a1 1 0 0 1 0 2H8a1 1 0 1 1 0-2zM1 4h12a1 1 0 0 1 0 2H1a1 1 0 1 1 0-2z' /></svg>
-      </div>
-  </div>
+  <nav class="navigation-container" id="navigationContainer">
     <div class="navigation-content">
       <ul class="navigation-list">
         <li class="navigation-list__item">
@@ -267,7 +267,24 @@
 
   
 
-  <footer class="footer"></footer>
+  <footer class="footer">
+    <div class="footer-phone">
+      <svg class="footer-phone__icon" viewBox="-6 -2 24 24" width="24" height="24" preserveAspectRatio="xMinYMin"><path d='M3 0h6a3 3 0 0 1 3 3v14a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V3a3 3 0 0 1 3-3zm0 2a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H3zm3 15a1 1 0 1 1 0-2 1 1 0 0 1 0 2z'/></svg>
+      <div class="footer-phone__text">+48 124 455 677</div>
+    </div>
+    <div class="footer-adress">
+    <svg class="footer-adress__icon" viewBox="-5 -2 24 24" width="24" height="24" preserveAspectRatio="xMinYMin"><path d='M12 7A5 5 0 1 0 2 7c0 1.726 1.66 5.031 5 9.653 3.34-4.622 5-7.927 5-9.653zM7 20C2.333 13.91 0 9.577 0 7a7 7 0 1 1 14 0c0 2.577-2.333 6.91-7 13zm0-9a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-2a2 2 0 1 0 0-4 2 2 0 0 0 0 4z'/></svg>  
+    <div class="footer-adress__text">
+      QuoVadis
+      <br>Grunwaldzka 132/6B
+      <br>81-238 Gdańsk
+    </div>
+  </div>
+    <div class="footer-mail">
+        <svg class="footer-mail__icon" viewBox="-2 -5 24 24" width="24" height="24" preserveAspectRatio="xMinYMin"><path d='M3.598 2l5.747 5.12a1 1 0 0 0 1.33 0L16.423 2H3.598zM18 3.273l-5.994 5.341a3 3 0 0 1-3.992 0L2 3.254V12h16V3.273zM2 0h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z'/></svg>      
+        <div class="footer-mail__text">contact@quovadis.pl</div>
+    </div>
+  </footer>
 
   <script type="text/javascript" src="script.js"></script>
 
