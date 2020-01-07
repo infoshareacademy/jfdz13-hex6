@@ -6,7 +6,28 @@ const navigationContainer = document.getElementById("navigationContainer");
 const hamburgerIcon = document.getElementById('navigationTitle');
 const menuButtons = document.querySelectorAll('.navigation-link');
 
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 0) {
+        navigationContainer.classList.add('navigation-container--invisible');
+    } else {
+        navigationContainer.classList.remove('navigation-container--invisible');
+    }
+});
 
+window.addEventListener('scroll', () => {
+    const featureItem = document.getElementsByClassName('navigation-list__item')[1];
+    const featureLink = document.getElementsByClassName('navigation-link')[1];
+    
+
+    // for (i = 0; i <= 5; i++) {
+
+    // }
+
+    if (window.scrollY > 200) {
+        featureItem.classList.add('navigation-list__item--active');
+        featureLink.classList.add('navigation-link--active');
+    }
+});
 
 hamburgerIcon.onclick = function () {
     if (mobileViewport.matches) {
@@ -26,24 +47,5 @@ menuButtons.forEach((button) => {
     });
 });
 
-function hasScrolled() {
-    if (desktopViewport.matches) {
-        let scrollTop = window.scrollY;
-        if (scrollTop > 0){
-            navigationContainer.classList.add('navigation-container--invisible');
-        } else {
-            navigationContainer.classList.remove('navigation-container--invisible');
-        }
-    }
-};
 
-document.addEventListener('scroll', function() {
-  isScrolling = true;
-}, false);
 
-setInterval(function() {
-  if (isScrolling = true) {
-    hasScrolled();
-    isScrolling = false;
-  }
-}, 100);

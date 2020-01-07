@@ -219,6 +219,18 @@ html, body {
   color: var(--color-darkblue);
 }
 
+.navigation-list__item--active {
+  background-image: linear-gradient(var(--color-darkblue), var(--color-darkblue));
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 100% .2rem;
+}
+
+.navigation-link--active {
+  color: var(--color-darkblue);
+}
+
+
 @media screen and (max-width:900px) and (min-width:601px) {
   .navigation-container {
     height: 60px;
