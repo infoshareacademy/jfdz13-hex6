@@ -22,7 +22,7 @@ let playerSpeedY = 50;
 let playerPositionX = parseInt(window.getComputedStyle(player).left);
 let playerPositionY = parseInt(window.getComputedStyle(player).top);
 
-console.log(playerPositionY);
+// console.log(playerPositionY);
 
 //PLAYER moving
 window.addEventListener('keydown', event => {
@@ -97,3 +97,40 @@ window.addEventListener('keyup', event => {
         document.getElementById('player-movement').className = 'player-movement flyRight';
     }
 });
+
+//OBSTACLES
+
+
+const generateRandomNumber = (size) => {
+    const randomNumber = Math.floor(Math.random() * 1500);
+
+    if (randomNumber < size) {
+        return randomNumber; 
+    } else {
+        return generateRandomNumber(size);
+    }
+};
+
+const createNewBuilding = () => {
+    const building = document.createElement('div');
+    world.appendChild(building);
+    building.className = 'building';
+
+    buildingMaxHeight = worldHeight - playerHeight;
+
+    building.style.height = `${generateRandomNumber(buildingMaxHeight)}px`;
+
+    building.style.left = `${generateRandomNumber(worldWidth)}px`;
+
+    world.appendChild(building);
+};
+
+const addNewBuilding = () => {
+   const numberOfBuildings =  document.getElementsByClassName('building');
+   if (numberOfBuildings.length < 5) {
+        createNewBuilding();
+        addNewBuilding();
+   } 
+}
+
+addNewBuilding();
