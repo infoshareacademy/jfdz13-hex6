@@ -1,5 +1,3 @@
-
-
 //WORLD
 const world = document.querySelector('#world');
 const worldWidth = parseInt(window.getComputedStyle(world).width);
@@ -22,7 +20,21 @@ let playerSpeedY = 50;
 let playerPositionX = parseInt(window.getComputedStyle(player).left);
 let playerPositionY = parseInt(window.getComputedStyle(player).top);
 
-// console.log(playerPositionY);
+
+
+// SCORE 
+
+let score = 0;
+
+const scoreDiv = document.createElement('div');
+world.appendChild(scoreDiv);
+scoreDiv.className = 'score';
+scoreDiv.innerText = `Wynik: ${score}`;
+
+updateScoreView = () => {
+    scoreDiv.innerText = `Wynik: ${score}`;
+};
+
 
 //PLAYER moving
 window.addEventListener('keydown', event => {
@@ -58,7 +70,7 @@ window.addEventListener('keydown', event => {
         if (playerPositionY >= playerSpeedY) {
             playerPositionY -= playerSpeedY;
             player.style.top = `${playerPositionY}px`;
-        }else{
+        } else {
             let playerActualPositionY = parseInt(window.getComputedStyle(player).top);
             playerNewSpeedY = playerActualPositionY;
             playerActualPositionY += playerNewSpeedY; 
@@ -72,7 +84,7 @@ window.addEventListener('keydown', event => {
         if (playerPositionY + playerHeight + playerSpeedY <= worldHeight) {
             playerPositionY += playerSpeedY;
             player.style.top = `${playerPositionY}px`;
-        }else{
+        } else {
             let playerActualPositionY = parseInt(window.getComputedStyle(player).top);
             playerNewSpeedY = worldHeight - playerActualPositionY - playerHeight;
             playerActualPositionY += playerNewSpeedY; 
@@ -100,6 +112,7 @@ window.addEventListener('keyup', event => {
 
 //OBSTACLES
 
+const buildingList = [];
 
 const generateRandomNumber = (size) => {
     const randomNumber = Math.floor(Math.random() * 1500);
@@ -117,16 +130,20 @@ const createNewBuilding = () => {
     building.className = 'building';
 
     buildingMaxHeight = worldHeight - playerHeight;
+    // buildingMaxLeft = worldWidth - buildingWidth; // nie działa, do poprawy
 
-    building.style.height = `${generateRandomNumber(buildingMaxHeight)}px`;
-
-    building.style.left = `${generateRandomNumber(worldWidth)}px`;
+    const buildingHeight = generateRandomNumber(buildingMaxHeight);
+    building.style.height = `${buildingHeight}px`;
+    const buildingLeft = generateRandomNumber(worldWidth);
+    building.style.left = `${buildingLeft}px`;
+    buildingList.push({left: buildingLeft, height: buildingHeight});
 
     world.appendChild(building);
 };
 
+const numberOfBuildings =  document.getElementsByClassName('building');
+
 const addNewBuilding = () => {
-   const numberOfBuildings =  document.getElementsByClassName('building');
    if (numberOfBuildings.length < 5) {
         createNewBuilding();
         addNewBuilding();
@@ -134,3 +151,27 @@ const addNewBuilding = () => {
 }
 
 addNewBuilding();
+
+const building = document.querySelector('.building');
+const buildingWidth = parseInt(window.getComputedStyle(building).width);
+const buildingLeft = parseInt(window.getComputedStyle(building).left);
+
+
+const collisionFunction = () => {
+        // if (playerPositionX + playerWidth >= buildingLeft &&
+        //     playerPositionX + playerWidth <= buildingLeft + buildingWidth) {
+        //         score -= 1;
+        if (buildingList.some(building => {
+            return playerPositionX + playerWidth >= building.left && 
+            playerPositionX + playerWidth <= building.left + buildingWidth &&
+            worldHeight - playerPositionY <= building.height
+        }))
+    score -= 1;
+    return score;
+};
+    
+window.addEventListener('keydown', (event) => {
+    collisionFunction();
+    updateScoreView();
+});
+
