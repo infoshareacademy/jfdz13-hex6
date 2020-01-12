@@ -35,6 +35,35 @@
     
 }
 
+/* .background {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-image: url(images/background/clouds_1.png),
+                      url(images/background/clouds_2.png),
+                      url(images/background/clouds_3.png),
+                      url(images/background/clouds_4.png),
+                      url(images/background/rocks_2.png),
+                      url(images/background/rocks_1.png),
+                      url(images/background/sky.png);               
+    background-size: 100%;
+    background-position: 0px 0px;
+    animation: goLeft 200s linear infinite;
+    
+}
+
+@keyframes goLeft {
+    100% {
+        background-position: -800vw 0px,
+                             -200vw 0px,
+                             -500vw 0px,
+                             -400vw 0px,
+                              0vw 0px,
+                              0vw 0px,
+                              0vw 0px;
+     };   
+} */
+
 .player {
     position: absolute;
     width: 100px;
