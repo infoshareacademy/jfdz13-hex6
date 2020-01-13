@@ -114,64 +114,88 @@ window.addEventListener('keyup', event => {
 
 const buildingList = [];
 
-const generateRandomNumber = (size) => {
+const generateRandomNumber = (MaxSize, MinSize) => {
     const randomNumber = Math.floor(Math.random() * 1500);
 
-    if (randomNumber < size) {
+    if (randomNumber < MaxSize && randomNumber > MinSize) {
         return randomNumber; 
     } else {
-        return generateRandomNumber(size);
+        return generateRandomNumber(MaxSize, MinSize);
     }
 };
 
-const createNewBuilding = () => {
-    const building = document.createElement('div');
-    world.appendChild(building);
-    building.className = 'building';
+const createNewObstacle = (obstacleType, maxHeight, minHeight) => {
+    
+    const obstacle = document.createElement('div');
+    
+    obstacle.className = obstacleType;
 
-    buildingMaxHeight = worldHeight - playerHeight;
-    // buildingMaxLeft = worldWidth - buildingWidth; // nie działa, do poprawy
+    const obstacleHeight = generateRandomNumber(maxHeight, minHeight);
+    obstacle.style.height = `${obstacleHeight}px`;
+    obstacle.style.left = `${1200}px`;
 
-    const buildingHeight = generateRandomNumber(buildingMaxHeight);
-    building.style.height = `${buildingHeight}px`;
-    const buildingLeft = generateRandomNumber(worldWidth);
-    building.style.left = `${buildingLeft}px`;
-    buildingList.push({left: buildingLeft, height: buildingHeight});
+    world.appendChild(obstacle);
+    
+    const movingObstacle = setInterval ( () =>  {
+        const obstacleLeft = parseInt(window.getComputedStyle(obstacle).left);
+        let newObstacleLeft = obstacleLeft - 1;
+        obstacle.style.left = `${newObstacleLeft}px`
+        stopMovingObstacle(newObstacleLeft);
+    }, 10);
 
-    world.appendChild(building);
+    const stopMovingObstacle = (newObstacleLeft) => {
+        if(newObstacleLeft < 0) {
+            obstacle.remove();
+            addNewObstacle();
+        };
+    };
 };
 
-const numberOfBuildings =  document.getElementsByClassName('building');
-
-const addNewBuilding = () => {
-   if (numberOfBuildings.length < 5) {
-        createNewBuilding();
-        addNewBuilding();
-   } 
+const addNewObstacle = () => {
+    const numberOfObstacles =  document.getElementsByClassName('type');
+        if (numberOfObstacles.length < 1) {
+            createNewObstacle();
+            addNewObstacle();
+        } 
 }
 
-addNewBuilding();
+obstacleType1 = 'lamp';
+obstacleType2 = 'tree';
 
-const building = document.querySelector('.building');
-const buildingWidth = parseInt(window.getComputedStyle(building).width);
-const buildingLeft = parseInt(window.getComputedStyle(building).left);
+setInterval (() => {
+    createNewObstacle(obstacleType1, 350, 200);
+}, 8000);
+
+setInterval (() => {
+    createNewObstacle(obstacleType2, 600, 400);
+}, 11000);
 
 
-const collisionFunction = () => {
-        // if (playerPositionX + playerWidth >= buildingLeft &&
-        //     playerPositionX + playerWidth <= buildingLeft + buildingWidth) {
-        //         score -= 1;
-        if (buildingList.some(building => {
-            return playerPositionX + playerWidth >= building.left && 
-            playerPositionX + playerWidth <= building.left + buildingWidth &&
-            worldHeight - playerPositionY <= building.height
-        }))
-    score -= 1;
-    return score;
-};
+// buildingList.push({left: buildingLeft, height: buildingHeight});
+
+
+
+// const building = document.querySelector('.building');
+// const buildingWidth = parseInt(window.getComputedStyle(building).width);
+// const buildingLeft = parseInt(window.getComputedStyle(building).left);
+
+
+// const collisionFunction = () => {
+//         // if (playerPositionX + playerWidth >= buildingLeft &&
+//         //     playerPositionX + playerWidth <= buildingLeft + buildingWidth) {
+//         //         score -= 1;
+//         if (buildingList.some(building => {
+//             return playerPositionX + playerWidth >= building.left && 
+//             playerPositionX + playerWidth <= building.left + buildingWidth &&
+//             worldHeight - playerPositionY <= building.height
+//         }))
+//     score -= 1;
+//     return score;
+// };
     
-window.addEventListener('keydown', (event) => {
-    collisionFunction();
-    updateScoreView();
-});
+// window.addEventListener('keydown', (event) => {
+//     collisionFunction();
+//     updateScoreView();
+  
+// });
 

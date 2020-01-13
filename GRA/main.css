@@ -90,10 +90,20 @@ top: -400px;
 
 /* OBSTACLES */
 
-.building {
+.lamp {
     position: absolute;
     bottom: 0;
-    min-width: 100px;
-    background: url(images/apartment.png);
+    width: 100px;
+    background: url(images/latarnia.png);
     background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.tree {
+    position: absolute;
+    bottom: 0;
+    width: 230px;
+    background: url(images/drzewo1.png);
+    background-size: contain;
+    background-repeat: no-repeat;
 }
