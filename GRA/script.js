@@ -114,8 +114,8 @@ window.addEventListener('keyup', event => {
 
 const buildingList = [];
 
-const generateRandomNumber = (MaxSize, MinSize) => {
-    const randomNumber = Math.floor(Math.random() * 1500);
+const generateRandomNumber = (MaxSize, MinSize, multiplier) => {
+    const randomNumber = Math.floor(Math.random() * multiplier);
 
     if (randomNumber < MaxSize && randomNumber > MinSize) {
         return randomNumber; 
@@ -130,7 +130,7 @@ const createNewObstacle = (obstacleType, maxHeight, minHeight) => {
     
     obstacle.className = obstacleType;
 
-    const obstacleHeight = generateRandomNumber(maxHeight, minHeight);
+    const obstacleHeight = generateRandomNumber(maxHeight, minHeight, multiplier);
     obstacle.style.height = `${obstacleHeight}px`;
     obstacle.style.left = `${1200}px`;
 
@@ -161,15 +161,24 @@ const addNewObstacle = () => {
 
 obstacleType1 = 'lamp';
 obstacleType2 = 'tree';
+obstacleType3 = 'pigeon';
+
+// jak wygenerować gołębia?
+// przez określenie granic wysokości gołebia na 30-90px funkcja generateRandomNumber nie moze wygenerowac losowej liczby
+// dodanie multiplier który w zaleności od wielkości obiektu miałby nadawać odpowiedni mnoznik w funkcji generateRandomNumber() nie działa
+//jak to obejść?
 
 setInterval (() => {
-    createNewObstacle(obstacleType1, 350, 200);
+    createNewObstacle(obstacleType1, 350, 200, 500);
 }, 8000);
 
 setInterval (() => {
-    createNewObstacle(obstacleType2, 600, 400);
+    createNewObstacle(obstacleType2, 600, 400, 300);
 }, 11000);
 
+setInterval (() => {
+    createNewObstacle(obstacleType3, 30, 90, 100);
+}, 5000);
 
 // buildingList.push({left: buildingLeft, height: buildingHeight});
 
