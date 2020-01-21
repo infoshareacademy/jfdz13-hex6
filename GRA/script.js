@@ -25,98 +25,138 @@ let playerPositionY = parseInt(window.getComputedStyle(player).top);
 
 //PLAYER moving
 
+//chodzenie podejście 3 - requestAnimationFrame()
+
+let start;
+let stopId;
+let progress;
+let toggle = false;
+
+const seagull = document.getElementById('player');
 
 
-//nowe chodzenie mniej skokowe
 
-let moveKey = 0;
-let moveTime = 0 ;
-let frames = 10;
-let second = 60;
-let fps = second/frames;
+function step(timestamp) {
+    if (!start || progress > 400) start = timestamp;
+    progress = (timestamp - start) / 20;
+    seagull.style.left = progress + 'px';
+    stopId = window.requestAnimationFrame(step);
+}
+
 
 
 window.addEventListener('keydown', event => {
 
-            if (event.code === flyRight) {
-                document.getElementById('player-movement').className = 'player-movement flyRight';
-                moveRight();
-            }
-
-            if (event.code === flyLeft) {
-                document.getElementById('player-movement').className = 'player-movement flyLeft';
-                moveLeft();
-            }
-
-            if (event.code === flyUp) {
-                moveUp();
-            }
-
-            if (event.code === flyDown) {
-                moveDown();
-            }
+    if (event.code === flyRight) {
+        document.getElementById('player-movement').className = 'player-movement flyRight';
+        toggle = true;
+        window.requestAnimationFrame(step);
+    }
 
 });
 
 
-function moveRight() {
-    clearTimeout(moveTime);
-        moveTime = setTimeout(function(){
-        clearInterval(moveKey);
-    },second);        
+window.addEventListener('keyup', event => {
+    if (event.code === flyRight) {
+        document.getElementById('player-movement').className = 'player-movement flyRight';
+        toggle = false;
+        cancelAnimationFrame(stopId);
 
-    clearInterval(moveKey);
-    moveKey = setInterval(function(){
-        playerPositionX = playerPositionX + (60 / frames);
-        player.style.left = playerPositionX + "px";      
-    },fps);
+    }
 
-    return false;
-}
+});
 
-function moveLeft() {
-    clearTimeout(moveTime);
-        moveTime = setTimeout(function(){
-        clearInterval(moveKey);
-    },second);        
 
-    clearInterval(moveKey);
-    moveKey = setInterval(function(){
-        playerPositionX = playerPositionX - (60 / frames);
-        player.style.left = playerPositionX + "px";      
-    },fps);
+//nowe chodzenie mniej skokowe
 
-    return false;
-}
+// let moveKey = 0;
+// let moveTime = 0 ;
+// let frames = 10;
+// let second = 60;
+// let fps = second/frames;
 
-function moveUp() {
-    clearTimeout(moveTime);
-        moveTime = setTimeout(function(){
-        clearInterval(moveKey);
-    },second);        
 
-    clearInterval(moveKey);
-    moveKey = setInterval(function(){
-        playerPositionY = playerPositionY - (60 / frames);
-        player.style.top = playerPositionY + "px";      
-    },fps);
+// window.addEventListener('keydown', event => {
 
-    return false;
-}
+//             if (event.code === flyRight) {
+//                 document.getElementById('player-movement').className = 'player-movement flyRight';
+//                 moveRight();
+//             }
 
-function moveDown() {
-    clearTimeout(moveTime);
-        moveTime = setTimeout(function(){
-        clearInterval(moveKey);
-    },second);        
+//             if (event.code === flyLeft) {
+//                 document.getElementById('player-movement').className = 'player-movement flyLeft';
+//                 moveLeft();
+//             }
 
-    clearInterval(moveKey);
-    moveKey = setInterval(function(){
-        playerPositionY = playerPositionY + (60 / frames);
-        player.style.top = playerPositionY + "px";      
-    },fps);
-    return false;
-}
+//             if (event.code === flyUp) {
+//                 moveUp();
+//             }
+
+//             if (event.code === flyDown) {
+//                 moveDown();
+//             }
+
+// });
+
+
+// function moveRight() {
+//     clearTimeout(moveTime);
+//         moveTime = setTimeout(function(){
+//         clearInterval(moveKey);
+//     },second);        
+
+//     clearInterval(moveKey);
+//     moveKey = setInterval(function(){
+//         playerPositionX = playerPositionX + (60 / frames);
+//         player.style.left = playerPositionX + "px";      
+//     },fps);
+
+//     return false;
+// }
+
+// function moveLeft() {
+//     clearTimeout(moveTime);
+//         moveTime = setTimeout(function(){
+//         clearInterval(moveKey);
+//     },second);        
+
+//     clearInterval(moveKey);
+//     moveKey = setInterval(function(){
+//         playerPositionX = playerPositionX - (60 / frames);
+//         player.style.left = playerPositionX + "px";      
+//     },fps);
+
+//     return false;
+// }
+
+// function moveUp() {
+//     clearTimeout(moveTime);
+//         moveTime = setTimeout(function(){
+//         clearInterval(moveKey);
+//     },second);        
+
+//     clearInterval(moveKey);
+//     moveKey = setInterval(function(){
+//         playerPositionY = playerPositionY - (60 / frames);
+//         player.style.top = playerPositionY + "px";      
+//     },fps);
+
+//     return false;
+// }
+
+// function moveDown() {
+//     clearTimeout(moveTime);
+//         moveTime = setTimeout(function(){
+//         clearInterval(moveKey);
+//     },second);        
+
+//     clearInterval(moveKey);
+//     moveKey = setInterval(function(){
+//         playerPositionY = playerPositionY + (60 / frames);
+//         player.style.top = playerPositionY + "px";      
+//     },fps);
+//     return false;
+// }
 
 
 //stare chodzenie skokowe bardzo

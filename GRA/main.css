@@ -35,6 +35,8 @@
     
 }
 
+ /* backgraund test animation movement */
+
 /* .background {
     position: relative;
     width: 100%;
@@ -48,11 +50,14 @@
                       url(images/background/sky.png);               
     background-size: 100%;
     background-position: 0px 0px;
-    animation: goLeft 200s linear infinite;
+    animation: backgroundAnimation 200s linear infinite;
     
 }
 
-@keyframes goLeft {
+
+
+
+@keyframes backgroundAnimation {
     100% {
         background-position: -800vw 0px,
                              -200vw 0px,
@@ -73,7 +78,7 @@
     
 }
 
- /* PLAYER movement */
+ /* PLAYER animation movement */
 
 .player-movement {
     animation: fly-movement .4s steps(12) infinite;
@@ -116,3 +121,69 @@ top: -400px;
         transform: translate3d(-100%,0,0)
     }
 }
+
+ /* gołębie animation movement */
+
+.pidgey {
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    z-index: 80;
+    overflow: hidden;
+    top: 100px;
+    left: 500px;
+}
+
+.pidgey-movement {
+    animation: fly-movement .4s steps(8) infinite;
+    width: 600px;
+    height: 150px;
+    position: relative;
+    
+}
+
+.pidgey2 {
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    z-index: 80;
+    overflow: hidden;
+    top: 150px;
+    left: 800px;
+}
+
+.pidgey2-movement {
+    animation: fly-movement .4s steps(8) infinite;
+    width: 600px;
+    height: 150px;
+    position: relative;
+    
+}
+
+.flyWhite {
+    top: 0;
+    }
+    
+.flyGrey {
+    top: -75px;
+    }
+
+
+/* .baloon {
+    position: absolute;
+    width: 100px;
+    height: 152.5px;
+    z-index: 70;
+    overflow: hidden;
+    top: 50px;
+    left: 900px;
+}
+    
+.baloon-movement {
+    animation: fly-movement .5s steps(6) infinite;
+    width: 600px;
+    height: 152.5px;
+    position: relative;
+        
+} */
+
