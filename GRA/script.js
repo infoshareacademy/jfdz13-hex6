@@ -16,7 +16,7 @@ const flyLeft = 'ArrowLeft';
 const flyUp = 'ArrowUp';
 const flyDown = 'ArrowDown';
 
-let playerSpeedX = 15;
+let playerSpeedX = 80;
 let playerSpeedY = 20;
 
 let playerPositionX = parseInt(window.getComputedStyle(player).left);
@@ -27,44 +27,80 @@ let playerPositionY = parseInt(window.getComputedStyle(player).top);
 
 //chodzenie podejście 3 - requestAnimationFrame()
 
-let start;
 let stopId;
-let progress;
 let toggle = false;
+let time = Date.now();
+let dTime;
 
 const seagull = document.getElementById('player');
-
-
-
-function step(timestamp) {
-    if (!start || progress > 400) start = timestamp;
-    progress = (timestamp - start) / 20;
-    seagull.style.left = progress + 'px';
-    stopId = window.requestAnimationFrame(step);
+function getDeltaTime() {
+    dTime = Date.now() - time;
+    time = Date.now();
 }
-
-
-
+function step() {
+    getDeltaTime();
+    stopId = requestAnimationFrame(step);
+    if (toggle) {
+        playerPositionX += 0.01 * playerSpeedX * dTime;
+        seagull.style.left = playerPositionX + 'px';
+    } else {
+        cancelAnimationFrame(stopId);
+    }
+}
 window.addEventListener('keydown', event => {
-
     if (event.code === flyRight) {
         document.getElementById('player-movement').className = 'player-movement flyRight';
+        getDeltaTime();
         toggle = true;
-        window.requestAnimationFrame(step);
+        requestAnimationFrame(step);
     }
-
 });
-
-
 window.addEventListener('keyup', event => {
     if (event.code === flyRight) {
         document.getElementById('player-movement').className = 'player-movement flyRight';
         toggle = false;
-        cancelAnimationFrame(stopId);
-
+        getDeltaTime();
     }
-
 });
+
+// let start;
+// let stopId;
+// let progress;
+// let toggle = false;
+
+
+// let time = Date.now();
+// function step() {
+//     const dTime = Date.now() - time;
+//     time = Date.now();
+//     if (toggle) {
+//         playerPositionX += 0.01 * playerSpeedX * dTime;
+//         player.style.left = playerPositionX + 'px';
+//     }
+//     stopId = window.requestAnimationFrame(step);
+// }
+// step();
+
+// window.addEventListener('keydown', event => {
+
+//     if (event.code === flyRight) {
+//         document.getElementById('player-movement').className = 'player-movement flyRight';
+//         toggle = true;
+//         window.requestAnimationFrame(step);
+//     }
+
+// });
+
+
+// window.addEventListener('keyup', event => {
+//     if (event.code === flyRight) {
+//         document.getElementById('player-movement').className = 'player-movement flyRight';
+//         toggle = false;
+//         cancelAnimationFrame(stopId);
+
+//     }
+
+// });
 
 
 //nowe chodzenie mniej skokowe
