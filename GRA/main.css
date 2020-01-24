@@ -110,7 +110,29 @@ top: -400px;
 
 .pigeon {
     position: absolute;
-    top: 10px;
-    width: 80px;
+    width: 75px;
+    height: 75px;
+    z-index: 80;
+    overflow: hidden;
+}
+.pigeon-movement {
+    animation: fly-movement .4s steps(8) infinite;
+    width: 600px;
+    height: 150px;
+    position: relative;
+    
+}
+.flyWhite {
+    top: 0;
+    }
+    
+.flyGrey {
+    top: -75px;
+    }
+
+.gameOver {
+    position: absolute;
+    width: 300px;
+    height: 150px;
     background-color: red;
 }

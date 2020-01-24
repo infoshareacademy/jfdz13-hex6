@@ -20,21 +20,37 @@ let playerSpeedY = 50;
 let playerPositionX = parseInt(window.getComputedStyle(player).left);
 let playerPositionY = parseInt(window.getComputedStyle(player).top);
 
-
+let lampList = [];
+let treeList = [];
+let pigeonList = [];
 
 // SCORE 
 
-let score = 0;
+let life = 10;
 
-const scoreDiv = document.createElement('div');
-world.appendChild(scoreDiv);
-scoreDiv.className = 'score';
-scoreDiv.innerText = `Wynik: ${score}`;
+const lifeDiv = document.createElement('div');
+world.appendChild(lifeDiv);
+lifeDiv.className = 'life';
+lifeDiv.innerText = `Życie: ${life}`;
 
-updateScoreView = () => {
-    scoreDiv.innerText = `Wynik: ${score}`;
+updateLifeView = () => {
+    lifeDiv.innerText = `Życie: ${life}`;
 };
 
+// *** GAME OVER *** //
+
+// const gameOverDiv = document.createElement('div');
+    
+// gameOverDiv.className = 'gameOver';
+
+// const gameOverFunction = () => {
+//     if (life <= 0) {
+//         stopMovingObstacle();
+//         stopMovingPigeon();
+
+//         world.appendChild(gameOverDiv);
+//     } 
+// }
 
 //PLAYER moving
 window.addEventListener('keydown', event => {
@@ -78,7 +94,6 @@ window.addEventListener('keydown', event => {
         }
     }
 
-
     if (event.code === flyDown) {
         document.getElementById('player-movement').className = 'player-movement flyRightDown';
         if (playerPositionY + playerHeight + playerSpeedY <= worldHeight) {
@@ -89,16 +104,13 @@ window.addEventListener('keydown', event => {
             playerNewSpeedY = worldHeight - playerActualPositionY - playerHeight;
             playerActualPositionY += playerNewSpeedY; 
             player.style.top = `${playerActualPositionY}px`;
-        }
-       
+        } 
     }
-
 });
 
 window.addEventListener('keyup', event => {
     if (event.code === flyLeft) {
         document.getElementById('player-movement').className = 'player-movement flyRight';
-
     }
 
     if (event.code === flyUp) {
@@ -110,27 +122,48 @@ window.addEventListener('keyup', event => {
     }
 });
 
-//OBSTACLES
+// ********* OBSTACLE GENERATOR ********** //
+const lampHeight = [350, 320, 300, 270, 260, 250, 240, 220, 200, 180];
+const treeHeight = [510, 500, 490, 470, 450, 440, 430, 400, 360, 350];
+const pigeonHeight = [100, 90, 85, 80, 75, 70, 65, 60, 55, 50];
+const pigeonTop = [10, 50, 90, 140, 180, 220, 260, 300, 340, 370];
 
-const buildingList = [];
-
-const generateRandomNumber = (MaxSize, MinSize, multiplier) => {
-    const randomNumber = Math.floor(Math.random() * multiplier);
-
-    if (randomNumber < MaxSize && randomNumber > MinSize) {
-        return randomNumber; 
+const generateRandomNumber = (obstacleHeightArray) => {
+    const randomNumber = Math.floor(Math.random() * 10);
+    
+    if (randomNumber === 1) {
+        return obstacleHeightArray[0]; 
+    } else if (randomNumber === 2) {
+        return obstacleHeightArray[1];
+    } else if (randomNumber === 3) {
+        return obstacleHeightArray[2];
+    } else if (randomNumber === 4) {
+        return obstacleHeightArray[3];
+    } else if (randomNumber === 5) {
+        return obstacleHeightArray[4];
+    } else if (randomNumber === 6) {
+        return obstacleHeightArray[5];
+    } else if (randomNumber === 7) {
+        return obstacleHeightArray[6];
+    } else if (randomNumber === 8) {
+        return obstacleHeightArray[7];
+    } else if (randomNumber === 9) {
+        return obstacleHeightArray[8];
+    } else if (randomNumber === 10) {
+        return obstacleHeightArray[9];
     } else {
-        return generateRandomNumber(MaxSize, MinSize);
+        return generateRandomNumber(obstacleHeightArray);
     }
 };
 
-const createNewObstacle = (obstacleType, maxHeight, minHeight) => {
+
+const createNewObstacle = (obstacleType, obstacleHeightArray) => {
     
     const obstacle = document.createElement('div');
     
     obstacle.className = obstacleType;
 
-    const obstacleHeight = generateRandomNumber(maxHeight, minHeight, multiplier);
+    const obstacleHeight = generateRandomNumber(obstacleHeightArray);
     obstacle.style.height = `${obstacleHeight}px`;
     obstacle.style.left = `${1200}px`;
 
@@ -146,65 +179,177 @@ const createNewObstacle = (obstacleType, maxHeight, minHeight) => {
     const stopMovingObstacle = (newObstacleLeft) => {
         if(newObstacleLeft < 0) {
             obstacle.remove();
-            addNewObstacle();
+            createNewObstacle();
         };
     };
 };
 
-const addNewObstacle = () => {
-    const numberOfObstacles =  document.getElementsByClassName('type');
-        if (numberOfObstacles.length < 1) {
-            createNewObstacle();
-            addNewObstacle();
-        } 
-}
-
 obstacleType1 = 'lamp';
 obstacleType2 = 'tree';
-obstacleType3 = 'pigeon';
-
-// jak wygenerować gołębia?
-// przez określenie granic wysokości gołebia na 30-90px funkcja generateRandomNumber nie moze wygenerowac losowej liczby
-// dodanie multiplier który w zaleności od wielkości obiektu miałby nadawać odpowiedni mnoznik w funkcji generateRandomNumber() nie działa
-//jak to obejść?
 
 setInterval (() => {
-    createNewObstacle(obstacleType1, 350, 200, 500);
+    createNewObstacle(obstacleType1, lampHeight);
 }, 8000);
 
 setInterval (() => {
-    createNewObstacle(obstacleType2, 600, 400, 300);
+    createNewObstacle(obstacleType2, treeHeight);
 }, 11000);
 
+
+// ***** PIGEON GENERATOR *** //
+obstacleType3 = 'pigeon';
+
+const createNewPigeon = (obstacleType, obstacleHeightArray, obstacleTopArray) => {
+    
+    const obstacle = document.createElement('div');
+    
+    obstacle.className = obstacleType;
+
+    const obstacleHeight = generateRandomNumber(obstacleHeightArray);
+    obstacle.style.height = `${obstacleHeight}px`;
+    obstacle.style.left = `${1200}px`;
+
+    const obstacleTop = generateRandomNumber(obstacleTopArray);
+    obstacle.style.top = `${obstacleTop}px`;
+
+    world.appendChild(obstacle);
+
+    const pigeonAnimation = document.createElement('img');
+    pigeonAnimation.className = 'pigeon-movement';
+    pigeonAnimation.setAttribute('src', 'images/flying-pigey.png');
+
+    obstacle.appendChild(pigeonAnimation);
+    
+    const movingPigeon = setInterval ( () =>  {
+        const obstacleLeft = parseInt(window.getComputedStyle(obstacle).left);
+        let newObstacleLeft = obstacleLeft - 1;
+        obstacle.style.left = `${newObstacleLeft}px`
+        stopMovingPigeon(newObstacleLeft);
+    }, 10);
+
+    const stopMovingPigeon = (newObstacleLeft) => {
+        if(newObstacleLeft < 0) {
+            obstacle.remove();
+            createNewPigeon();
+        };
+    };
+};
+
 setInterval (() => {
-    createNewObstacle(obstacleType3, 30, 90, 100);
+    createNewPigeon(obstacleType3, pigeonHeight, pigeonTop);
 }, 5000);
 
-// buildingList.push({left: buildingLeft, height: buildingHeight});
 
+// ******* COLLISION ***** //
 
+    // *** LAMP *** //
+const getObstacleDimensions = () => {
+    let lamp = document.querySelector('.lamp');
 
-// const building = document.querySelector('.building');
-// const buildingWidth = parseInt(window.getComputedStyle(building).width);
-// const buildingLeft = parseInt(window.getComputedStyle(building).left);
+    if (lamp === null) {
+        return;
+    }
+        let lampWidth = parseInt(window.getComputedStyle(lamp).width);
+        let lampLeft = parseInt(window.getComputedStyle(lamp).left);
+        let lampHeight = parseInt(window.getComputedStyle(lamp).height);
 
+        lampList.push({left: lampLeft, height: lampHeight, width: lampWidth});
+};
 
-// const collisionFunction = () => {
-//         // if (playerPositionX + playerWidth >= buildingLeft &&
-//         //     playerPositionX + playerWidth <= buildingLeft + buildingWidth) {
-//         //         score -= 1;
-//         if (buildingList.some(building => {
-//             return playerPositionX + playerWidth >= building.left && 
-//             playerPositionX + playerWidth <= building.left + buildingWidth &&
-//             worldHeight - playerPositionY <= building.height
-//         }))
-//     score -= 1;
-//     return score;
-// };
+const hasCollision = lamp => {
+    return playerPositionX + playerWidth >= lamp.left && 
+    playerPositionX  <= lamp.left + lamp.width &&
+    worldHeight - playerPositionY <= lamp.height
+}
+
+const collisionFunction = () => {
+    lampList.some(lamp => {
+        if (hasCollision(lamp)) {
+            return life -= 1;
+        }   
+    })   
+};
+
+const refresh = setInterval(() => {
+    getObstacleDimensions();
+    collisionFunction();
+    lampList = [];
+    updateLifeView();
+    // gameOverFunction();
+}, 1000);
+
+    // *** TREE *** //
+const getTreeDimensions = () => {
+    let tree = document.querySelector('.tree');
+
+    if (tree === null) {
+        return;
+    }
+        let treeWidth = parseInt(window.getComputedStyle(tree).width);
+        let treeLeft = parseInt(window.getComputedStyle(tree).left);
+        let treeHeight = parseInt(window.getComputedStyle(tree).height);
+
+        treeList.push({left: treeLeft, height: treeHeight, width: treeWidth});
+};
     
-// window.addEventListener('keydown', (event) => {
-//     collisionFunction();
-//     updateScoreView();
-  
-// });
+const hasCollisionWithTree = tree => {
+    return playerPositionX + playerWidth >= tree.left && 
+    playerPositionX  <= tree.left + tree.width &&
+    worldHeight - playerPositionY <= tree.height
+}
 
+const collisionWithTreeFunction = () => {
+    treeList.some(tree => {
+        if (hasCollisionWithTree(tree)) {
+            return life -= 1;
+        }   
+    })   
+};
+
+const refresh2 = setInterval(() => {
+    getTreeDimensions();
+    collisionWithTreeFunction();
+    treeList = [];
+    updateLifeView();
+    // gameOverFunction();
+}, 1000);
+    
+
+    // *** PIGEON *** //
+const getPigeonDimensions = () => {
+    let pigeon = document.querySelector('.pigeon');
+
+    if (pigeon === null) {
+        return;
+    }
+        let pigeonWidth = parseInt(window.getComputedStyle(pigeon).width);
+        let pigeonLeft = parseInt(window.getComputedStyle(pigeon).left);
+        let pigeonHeight = parseInt(window.getComputedStyle(pigeon).height);
+        let pigeonTop = parseInt(window.getComputedStyle(pigeon).top);
+
+        pigeonList.push({left: pigeonLeft, top: pigeonTop, height: pigeonHeight, width: pigeonWidth});
+};
+    
+const hasCollisionWithPigeon = pigeon => {
+    return playerPositionX + playerWidth >= pigeon.left && 
+    playerPositionX  <= pigeon.left + pigeon.width &&
+    playerPositionY + playerHeight >= pigeon.top 
+    &&
+    playerPositionY <= pigeon.top + pigeon.height
+}
+
+const collisionWithPigeonFunction = () => {
+    pigeonList.some(pigeon => {
+        if (hasCollisionWithPigeon(pigeon)) {
+            return life -= 1;
+        }   
+    })   
+};
+
+const refresh3 = setInterval(() => {
+    getPigeonDimensions();
+    collisionWithPigeonFunction();
+    pigeonList = [];
+    updateLifeView();
+    // gameOverFunction();
+}, 1000);
