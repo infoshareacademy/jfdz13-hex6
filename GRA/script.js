@@ -26,7 +26,7 @@ let pigeonList = [];
 
 // SCORE 
 
-let life = 10;
+let life = 1;
 
 const lifeDiv = document.createElement('div');
 world.appendChild(lifeDiv);
@@ -39,18 +39,16 @@ updateLifeView = () => {
 
 // *** GAME OVER *** //
 
-// const gameOverDiv = document.createElement('div');
+const gameOverDiv = document.createElement('div');
     
-// gameOverDiv.className = 'gameOver';
+gameOverDiv.className = 'gameOver';
 
-// const gameOverFunction = () => {
-//     if (life <= 0) {
-//         stopMovingObstacle();
-//         stopMovingPigeon();
-
-//         world.appendChild(gameOverDiv);
-//     } 
-// }
+const gameOverFunction = () => {
+    if (life <= 0) {
+        world.appendChild(gameOverDiv);
+        player.remove();
+    } 
+}
 
 //PLAYER moving
 window.addEventListener('keydown', event => {
@@ -287,7 +285,7 @@ const refresh = setInterval(() => {
     collisionFunction();
     lampList = [];
     updateLifeView();
-    // gameOverFunction();
+    gameOverFunction();
 }, 1000);
 
     // *** TREE *** //
@@ -323,7 +321,7 @@ const refresh2 = setInterval(() => {
     collisionWithTreeFunction();
     treeList = [];
     updateLifeView();
-    // gameOverFunction();
+    gameOverFunction();
 }, 1000);
     
 
@@ -363,5 +361,5 @@ const refresh3 = setInterval(() => {
     collisionWithPigeonFunction();
     pigeonList = [];
     updateLifeView();
-    // gameOverFunction();
+    gameOverFunction();
 }, 1000);
