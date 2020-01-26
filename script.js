@@ -15,6 +15,12 @@ window.addEventListener('scroll', () => {
 });
 
 window.addEventListener('scroll', () => {
+    if (mobileViewport.matches) {
+        navigationContainer.classList.add('navigation-container--closed');
+    } 
+});
+
+window.addEventListener('scroll', () => {
     const featureItem = document.getElementsByClassName('navigation-list__item')[1];
     const featureLink = document.getElementsByClassName('navigation-link')[1];
     
