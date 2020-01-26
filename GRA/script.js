@@ -125,8 +125,7 @@ window.addEventListener('keyup', event => {
 // ********* OBSTACLE GENERATOR ********** //
 const lampHeight = [350, 320, 300, 270, 260, 250, 240, 220, 200, 180];
 const treeHeight = [510, 500, 490, 470, 450, 440, 430, 400, 360, 350];
-const pigeonHeight = [100, 90, 85, 80, 75, 70, 65, 60, 55, 50];
-const pigeonTop = [10, 50, 90, 140, 180, 220, 260, 300, 340, 370];
+const pigeonTop = [10, 50, 60, 90, 140, 180, 260, 300, 340, 370];
 
 const generateRandomNumber = (obstacleHeightArray) => {
     const randomNumber = Math.floor(Math.random() * 10);
@@ -179,34 +178,44 @@ const createNewObstacle = (obstacleType, obstacleHeightArray) => {
     const stopMovingObstacle = (newObstacleLeft) => {
         if(newObstacleLeft < 0) {
             obstacle.remove();
-            createNewObstacle();
+            createNewObstacle(obstacleType, obstacleHeightArray);
         };
     };
 };
 
+
+//ograniczyć liczbę pojawiających się przeszkód !!
+
 obstacleType1 = 'lamp';
 obstacleType2 = 'tree';
 
-setInterval (() => {
-    createNewObstacle(obstacleType1, lampHeight);
+const lampInterval = setInterval (() => {
+    const numberOfLamps =  document.getElementsByClassName('lamp');
+    if (numberOfLamps.length < 3) {
+        createNewObstacle(obstacleType1, lampHeight);
+   }
 }, 8000);
 
-setInterval (() => {
-    createNewObstacle(obstacleType2, treeHeight);
+
+
+const treeInterval = setInterval (() => {
+    const numberOfTrees =  document.getElementsByClassName('tree');
+    if (numberOfTrees.length < 3) {
+        createNewObstacle(obstacleType2, lampHeight);
+   }
 }, 11000);
 
 
 // ***** PIGEON GENERATOR *** //
 obstacleType3 = 'pigeon';
 
-const createNewPigeon = (obstacleType, obstacleHeightArray, obstacleTopArray) => {
+const createNewPigeon = (obstacleType, obstacleTopArray) => {
     
     const obstacle = document.createElement('div');
     
     obstacle.className = obstacleType;
 
-    const obstacleHeight = generateRandomNumber(obstacleHeightArray);
-    obstacle.style.height = `${obstacleHeight}px`;
+   
     obstacle.style.left = `${1200}px`;
 
     const obstacleTop = generateRandomNumber(obstacleTopArray);
@@ -216,7 +225,7 @@ const createNewPigeon = (obstacleType, obstacleHeightArray, obstacleTopArray) =>
 
     const pigeonAnimation = document.createElement('img');
     pigeonAnimation.className = 'pigeon-movement';
-    pigeonAnimation.setAttribute('src', 'images/flying-pigey.png');
+    pigeonAnimation.setAttribute('src', 'images/flying-pigey_whiteOnly.png');
 
     obstacle.appendChild(pigeonAnimation);
     
@@ -230,13 +239,16 @@ const createNewPigeon = (obstacleType, obstacleHeightArray, obstacleTopArray) =>
     const stopMovingPigeon = (newObstacleLeft) => {
         if(newObstacleLeft < 0) {
             obstacle.remove();
-            createNewPigeon();
+            createNewPigeon(obstacleType, obstacleTopArray);
         };
     };
 };
 
-setInterval (() => {
-    createNewPigeon(obstacleType3, pigeonHeight, pigeonTop);
+const pigeonInterval = setInterval (() => {
+    const numberOfPigeons =  document.getElementsByClassName('pigeon');
+    if (numberOfPigeons.length < 4) {
+        createNewPigeon(obstacleType3, pigeonTop);
+   }
 }, 5000);
 
 

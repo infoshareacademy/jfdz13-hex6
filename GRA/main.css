@@ -118,17 +118,9 @@ top: -400px;
 .pigeon-movement {
     animation: fly-movement .4s steps(8) infinite;
     width: 600px;
-    height: 150px;
+    height: 75px;
     position: relative;
-    
 }
-.flyWhite {
-    top: 0;
-    }
-    
-.flyGrey {
-    top: -75px;
-    }
 
 .gameOver {
     position: absolute;
