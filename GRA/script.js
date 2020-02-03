@@ -47,6 +47,8 @@ const gameOverFunction = () => {
     if (life <= 0) {
         world.appendChild(gameOverDiv);
         player.remove();
+        clearInterval(lampInterval);
+
     } 
 }
 
@@ -125,34 +127,10 @@ const lampHeight = [350, 320, 300, 270, 260, 250, 240, 220, 200, 180];
 const treeHeight = [510, 500, 490, 470, 450, 440, 430, 400, 360, 350];
 const pigeonTop = [10, 50, 60, 90, 140, 180, 260, 300, 340, 370];
 
-const generateRandomNumber = (obstacleHeightArray) => {
-    const randomNumber = Math.floor(Math.random() * 10);
-    
-    if (randomNumber === 1) {
-        return obstacleHeightArray[0]; 
-    } else if (randomNumber === 2) {
-        return obstacleHeightArray[1];
-    } else if (randomNumber === 3) {
-        return obstacleHeightArray[2];
-    } else if (randomNumber === 4) {
-        return obstacleHeightArray[3];
-    } else if (randomNumber === 5) {
-        return obstacleHeightArray[4];
-    } else if (randomNumber === 6) {
-        return obstacleHeightArray[5];
-    } else if (randomNumber === 7) {
-        return obstacleHeightArray[6];
-    } else if (randomNumber === 8) {
-        return obstacleHeightArray[7];
-    } else if (randomNumber === 9) {
-        return obstacleHeightArray[8];
-    } else if (randomNumber === 10) {
-        return obstacleHeightArray[9];
-    } else {
-        return generateRandomNumber(obstacleHeightArray);
-    }
+const generateObstacleHeight = (obstacleHeightArray) => {
+    const arrayPosition = Math.floor(Math.random() * 10);
+    return obstacleHeightArray[arrayPosition];
 };
-
 
 const createNewObstacle = (obstacleType, obstacleHeightArray) => {
     
@@ -160,7 +138,7 @@ const createNewObstacle = (obstacleType, obstacleHeightArray) => {
     
     obstacle.className = obstacleType;
 
-    const obstacleHeight = generateRandomNumber(obstacleHeightArray);
+    const obstacleHeight = generateObstacleHeight(obstacleHeightArray);
     obstacle.style.height = `${obstacleHeight}px`;
     obstacle.style.left = `${1200}px`;
 
@@ -181,23 +159,18 @@ const createNewObstacle = (obstacleType, obstacleHeightArray) => {
     };
 };
 
-
-//ograniczyć liczbę pojawiających się przeszkód !!
-
 obstacleType1 = 'lamp';
 obstacleType2 = 'tree';
 
 const lampInterval = setInterval (() => {
-    const numberOfLamps =  document.getElementsByClassName('lamp');
+    let numberOfLamps =  document.getElementsByClassName('lamp');
     if (numberOfLamps.length < 3) {
         createNewObstacle(obstacleType1, lampHeight);
    }
 }, 8000);
 
-
-
 const treeInterval = setInterval (() => {
-    const numberOfTrees =  document.getElementsByClassName('tree');
+    let numberOfTrees =  document.getElementsByClassName('tree');
     if (numberOfTrees.length < 3) {
         createNewObstacle(obstacleType2, lampHeight);
    }
@@ -210,13 +183,10 @@ obstacleType3 = 'pigeon';
 const createNewPigeon = (obstacleType, obstacleTopArray) => {
     
     const obstacle = document.createElement('div');
-    
     obstacle.className = obstacleType;
 
-   
     obstacle.style.left = `${1200}px`;
-
-    const obstacleTop = generateRandomNumber(obstacleTopArray);
+    const obstacleTop = generateObstacleHeight(obstacleTopArray);
     obstacle.style.top = `${obstacleTop}px`;
 
     world.appendChild(obstacle);
@@ -253,6 +223,7 @@ const pigeonInterval = setInterval (() => {
 // ******* COLLISION ***** //
 
     // *** LAMP *** //
+
 const getObstacleDimensions = () => {
     let lamp = document.querySelector('.lamp');
 
