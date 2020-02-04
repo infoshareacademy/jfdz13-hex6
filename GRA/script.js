@@ -123,6 +123,9 @@ window.addEventListener('keyup', event => {
 });
 
 // ********* OBSTACLE GENERATOR ********** //
+obstacleType1 = 'lamp';
+obstacleType2 = 'tree';
+
 const lampHeight = [350, 320, 300, 270, 260, 250, 240, 220, 200, 180];
 const treeHeight = [510, 500, 490, 470, 450, 440, 430, 400, 360, 350];
 const pigeonTop = [10, 50, 60, 90, 140, 180, 260, 300, 340, 370];
@@ -135,9 +138,7 @@ const generateObstacleHeight = (obstacleHeightArray) => {
 const createNewObstacle = (obstacleType, obstacleHeightArray) => {
     
     const obstacle = document.createElement('div');
-    
     obstacle.className = obstacleType;
-
     const obstacleHeight = generateObstacleHeight(obstacleHeightArray);
     obstacle.style.height = `${obstacleHeight}px`;
     obstacle.style.left = `${1200}px`;
@@ -158,9 +159,6 @@ const createNewObstacle = (obstacleType, obstacleHeightArray) => {
         };
     };
 };
-
-obstacleType1 = 'lamp';
-obstacleType2 = 'tree';
 
 const lampInterval = setInterval (() => {
     let numberOfLamps =  document.getElementsByClassName('lamp');
@@ -207,7 +205,6 @@ const createNewPigeon = (obstacleType, obstacleTopArray) => {
     const stopMovingPigeon = (newObstacleLeft) => {
         if(newObstacleLeft < 0) {
             obstacle.remove();
-            createNewPigeon(obstacleType, obstacleTopArray);
         };
     };
 };
@@ -224,7 +221,7 @@ const pigeonInterval = setInterval (() => {
 
     // *** LAMP *** //
 
-const getObstacleDimensions = () => {
+const getLampDimensions = () => {
     let lamp = document.querySelector('.lamp');
 
     if (lamp === null) {
@@ -237,27 +234,19 @@ const getObstacleDimensions = () => {
         lampList.push({left: lampLeft, height: lampHeight, width: lampWidth});
 };
 
-const hasCollision = lamp => {
+const hasCollisionWithLamp = lamp => {
     return playerPositionX + playerWidth >= lamp.left && 
     playerPositionX  <= lamp.left + lamp.width &&
     worldHeight - playerPositionY <= lamp.height
 }
 
-const collisionFunction = () => {
+const collisionWithLampFunction = () => {
     lampList.some(lamp => {
         if (hasCollision(lamp)) {
             return life -= 1;
         }   
     })   
 };
-
-const refresh = setInterval(() => {
-    getObstacleDimensions();
-    collisionFunction();
-    lampList = [];
-    updateLifeView();
-    gameOverFunction();
-}, 1000);
 
     // *** TREE *** //
 const getTreeDimensions = () => {
@@ -285,16 +274,7 @@ const collisionWithTreeFunction = () => {
             return life -= 1;
         }   
     })   
-};
-
-const refresh2 = setInterval(() => {
-    getTreeDimensions();
-    collisionWithTreeFunction();
-    treeList = [];
-    updateLifeView();
-    gameOverFunction();
-}, 1000);
-    
+};  
 
     // *** PIGEON *** //
 const getPigeonDimensions = () => {
@@ -314,8 +294,7 @@ const getPigeonDimensions = () => {
 const hasCollisionWithPigeon = pigeon => {
     return playerPositionX + playerWidth >= pigeon.left && 
     playerPositionX  <= pigeon.left + pigeon.width &&
-    playerPositionY + playerHeight >= pigeon.top 
-    &&
+    playerPositionY + playerHeight >= pigeon.top && 
     playerPositionY <= pigeon.top + pigeon.height
 }
 
@@ -327,10 +306,16 @@ const collisionWithPigeonFunction = () => {
     })   
 };
 
-const refresh3 = setInterval(() => {
+const refreshFunction = setInterval(() => {
+    getLampDimensions();
+    getTreeDimensions();
     getPigeonDimensions();
+    collisionWithLampFunction();
+    collisionWithTreeFunction();
     collisionWithPigeonFunction();
     pigeonList = [];
+    lampList = [];
+    treeList = [];
     updateLifeView();
     gameOverFunction();
 }, 1000);
