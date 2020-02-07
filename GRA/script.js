@@ -17,11 +17,58 @@ const flyUp = 'ArrowUp';
 const flyDown = 'ArrowDown';
 
 let playerSpeedX = 80;
-let playerSpeedY = 20;
+let playerSpeedY = 100;
 
 let playerPositionX = parseInt(window.getComputedStyle(player).left);
 let playerPositionY = parseInt(window.getComputedStyle(player).top);
 
+let sunbedList = [];
+let treeList = [];
+let pigeonList = [];
+
+// SCORE 
+
+let life = 3;
+
+const lifeDiv = document.createElement('div');
+world.appendChild(lifeDiv);
+lifeDiv.className = 'life';
+lifeDiv.innerText = `Życie: ${life}`;
+lifeDiv.style.top = '0';
+lifeDiv.style.right = '-100px';
+
+updateLifeView = () => {
+    lifeDiv.innerText = `Życie: ${life}`;
+    if (life === 3) {
+        document.getElementById("heart").src = "images/life3.png";
+    }
+    if (life === 2) {
+    document.getElementById("heart").src = "images/life2.png";
+    }
+    if (life === 1) {
+    document.getElementById("heart").src = "images/life1.png";
+    }
+    if (life <= 0) {
+        document.getElementById("heart").src = "images/life0.png";
+    }
+};
+
+
+
+// *** GAME OVER *** //
+
+// const gameOverDiv = document.createElement('div');
+    
+// gameOverDiv.className = 'gameOver';
+
+// const gameOverFunction = () => {
+//     if (life <= 0) {
+//         world.appendChild(gameOverDiv);
+//         player.remove();
+//         clearInterval(sunbedInterval);
+
+//     } 
+// }
 
 //PLAYER moving
 
@@ -37,240 +84,280 @@ function getDeltaTime() {
     dTime = Date.now() - time;
     time = Date.now();
 }
-function step() {
+function movePlayerRight() {
     getDeltaTime();
-    stopId = requestAnimationFrame(step);
-    if (toggle) {
+    document.getElementById('player-movement').className = 'player-movement flyRight';
+    stopId = requestAnimationFrame(movePlayerRight);
+    if (toggle && playerPositionX + playerWidth + 0.01 * playerSpeedX * dTime <= worldWidth) {
         playerPositionX += 0.01 * playerSpeedX * dTime;
         seagull.style.left = playerPositionX + 'px';
     } else {
         cancelAnimationFrame(stopId);
     }
-}
+};
+
+function movePlayerLeft() {
+    getDeltaTime();
+    document.getElementById('player-movement').className = 'player-movement flyLeft';
+    stopId = requestAnimationFrame(movePlayerLeft);
+    if (toggle && playerPositionX >= 0.01 * playerSpeedX * dTime) {
+        playerPositionX -= 0.01 * playerSpeedX * dTime;
+        seagull.style.left = playerPositionX + 'px';
+    } else {
+        cancelAnimationFrame(stopId);
+    }
+};
+
+function movePlayerUp() {
+    getDeltaTime();
+    stopId = requestAnimationFrame(movePlayerUp);
+    if (toggle && playerPositionY >= 0.01 * playerSpeedY * dTime) {
+        playerPositionY -= 0.01 * playerSpeedY * dTime;
+        seagull.style.top = playerPositionY + 'px';
+    } else {
+        cancelAnimationFrame(stopId);
+    }
+};
+
+function movePlayerDown() {
+    getDeltaTime();
+    stopId = requestAnimationFrame(movePlayerDown);
+    if (toggle && playerPositionY + playerHeight + 0.01 * playerSpeedY * dTime <= worldHeight*2/3) {
+        playerPositionY += 0.01 * playerSpeedY * dTime;
+        seagull.style.top = playerPositionY + 'px';
+    } else {
+        cancelAnimationFrame(stopId);
+    }
+};
+
+
 window.addEventListener('keydown', event => {
     if (event.code === flyRight) {
-        document.getElementById('player-movement').className = 'player-movement flyRight';
         getDeltaTime();
         toggle = true;
-        requestAnimationFrame(step);
+        requestAnimationFrame(movePlayerRight);
+    }
+    if (event.code === flyLeft) {
+        getDeltaTime();
+        toggle = true;
+        requestAnimationFrame(movePlayerLeft);
+    }
+    if (event.code === flyUp) {
+        getDeltaTime();
+        toggle = true;
+        requestAnimationFrame(movePlayerUp);
+    }
+    if (event.code === flyDown) {
+        getDeltaTime();
+        toggle = true;
+        requestAnimationFrame(movePlayerDown);
     }
 });
 window.addEventListener('keyup', event => {
-    if (event.code === flyRight) {
-        document.getElementById('player-movement').className = 'player-movement flyRight';
+    if (event.code === flyRight || event.code === flyLeft  || event.code === flyUp || event.code === flyDown) {
         toggle = false;
         getDeltaTime();
     }
 });
 
-// let start;
-// let stopId;
-// let progress;
-// let toggle = false;
 
 
-// let time = Date.now();
-// function step() {
-//     const dTime = Date.now() - time;
-//     time = Date.now();
-//     if (toggle) {
-//         playerPositionX += 0.01 * playerSpeedX * dTime;
-//         player.style.left = playerPositionX + 'px';
-//     }
-//     stopId = window.requestAnimationFrame(step);
-// }
-// step();
+// ********* OBSTACLE GENERATOR ********** //
+obstacleType1 = 'sunbed';
+obstacleType2 = 'tree';
 
-// window.addEventListener('keydown', event => {
+const sunbedHeight = [320];
+const treeHeight = [510, 500, 490, 470, 450, 440, 430, 400, 360, 350];
+const pigeonTop = [10, 50, 60, 90, 140, 180, 260, 300, 340];
 
-//     if (event.code === flyRight) {
-//         document.getElementById('player-movement').className = 'player-movement flyRight';
-//         toggle = true;
-//         window.requestAnimationFrame(step);
-//     }
+const generateObstacleHeight = (obstacleHeightArray) => {
+    const arrayPosition = Math.floor(Math.random() * 10);
+    return obstacleHeightArray[arrayPosition];
+};
 
-// });
+const createNewObstacle = (obstacleType, obstacleHeightArray) => {
+    
+    const obstacle = document.createElement('div');
+    obstacle.className = obstacleType;
+    const obstacleHeight = generateObstacleHeight(obstacleHeightArray);
+    obstacle.style.height = `${obstacleHeight}px`;
+    obstacle.style.left = `${worldWidth - 10}px`;
+    const obstacleWidth = parseInt(window.getComputedStyle(obstacle).width)
 
+    world.appendChild(obstacle);
+    
+    const movingObstacle = setInterval ( () =>  {
+        const obstacleLeft = parseInt(window.getComputedStyle(obstacle).left);
+        let newObstacleLeft = obstacleLeft - 1;
+        obstacle.style.left = `${newObstacleLeft}px`
+        stopMovingObstacle(newObstacleLeft);
+    }, 10);
 
-// window.addEventListener('keyup', event => {
-//     if (event.code === flyRight) {
-//         document.getElementById('player-movement').className = 'player-movement flyRight';
-//         toggle = false;
-//         cancelAnimationFrame(stopId);
+    const stopMovingObstacle = (newObstacleLeft) => {
+        if(newObstacleLeft + 20 < 0) {
+            obstacle.remove();
+            createNewObstacle(obstacleType, obstacleHeightArray);
+        };
+    };
+};
 
-//     }
+const sunbedInterval = setInterval (() => {
+    let numberOfsunbeds =  document.getElementsByClassName('sunbed');
+    if (numberOfsunbeds.length < 2) {
+        createNewObstacle(obstacleType1, sunbedHeight);
+   }
+}, 5000);
 
-// });
-
-
-//nowe chodzenie mniej skokowe
-
-// let moveKey = 0;
-// let moveTime = 0 ;
-// let frames = 10;
-// let second = 60;
-// let fps = second/frames;
-
-
-// window.addEventListener('keydown', event => {
-
-//             if (event.code === flyRight) {
-//                 document.getElementById('player-movement').className = 'player-movement flyRight';
-//                 moveRight();
-//             }
-
-//             if (event.code === flyLeft) {
-//                 document.getElementById('player-movement').className = 'player-movement flyLeft';
-//                 moveLeft();
-//             }
-
-//             if (event.code === flyUp) {
-//                 moveUp();
-//             }
-
-//             if (event.code === flyDown) {
-//                 moveDown();
-//             }
-
-// });
+const treeInterval = setInterval (() => {
+    let numberOfTrees =  document.getElementsByClassName('tree');
+    if (numberOfTrees.length < 3) {
+        createNewObstacle(obstacleType2, sunbedHeight);
+   }
+}, 8000);
 
 
-// function moveRight() {
-//     clearTimeout(moveTime);
-//         moveTime = setTimeout(function(){
-//         clearInterval(moveKey);
-//     },second);        
+// ***** PIGEON GENERATOR *** //
+obstacleType3 = 'pigeon';
 
-//     clearInterval(moveKey);
-//     moveKey = setInterval(function(){
-//         playerPositionX = playerPositionX + (60 / frames);
-//         player.style.left = playerPositionX + "px";      
-//     },fps);
+const createNewPigeon = (obstacleType, obstacleTopArray) => {
+    
+    const obstacle = document.createElement('div');
+    obstacle.className = obstacleType;
 
-//     return false;
-// }
+    obstacle.style.left = `${worldWidth - 10}px`;
+    const obstacleTop = generateObstacleHeight(obstacleTopArray);
+    obstacle.style.top = `${obstacleTop}px`;
 
-// function moveLeft() {
-//     clearTimeout(moveTime);
-//         moveTime = setTimeout(function(){
-//         clearInterval(moveKey);
-//     },second);        
+    world.appendChild(obstacle);
 
-//     clearInterval(moveKey);
-//     moveKey = setInterval(function(){
-//         playerPositionX = playerPositionX - (60 / frames);
-//         player.style.left = playerPositionX + "px";      
-//     },fps);
+    const pigeonAnimation = document.createElement('img');
+    pigeonAnimation.className = 'pigeon-movement';
+    pigeonAnimation.setAttribute('src', 'images/flying-pigey_whiteOnly.png');
 
-//     return false;
-// }
+    obstacle.appendChild(pigeonAnimation);
+    
+    const movingPigeon = setInterval ( () =>  {
+        const obstacleLeft = parseInt(window.getComputedStyle(obstacle).left);
+        let newObstacleLeft = obstacleLeft - 1;
+        obstacle.style.left = `${newObstacleLeft}px`
+        stopMovingPigeon(newObstacleLeft);
+    }, 10);
 
-// function moveUp() {
-//     clearTimeout(moveTime);
-//         moveTime = setTimeout(function(){
-//         clearInterval(moveKey);
-//     },second);        
+    const stopMovingPigeon = (newObstacleLeft) => {
+        if(newObstacleLeft + 30 < 0) {
+            obstacle.remove();
+        };
+    };
+};
 
-//     clearInterval(moveKey);
-//     moveKey = setInterval(function(){
-//         playerPositionY = playerPositionY - (60 / frames);
-//         player.style.top = playerPositionY + "px";      
-//     },fps);
-
-//     return false;
-// }
-
-// function moveDown() {
-//     clearTimeout(moveTime);
-//         moveTime = setTimeout(function(){
-//         clearInterval(moveKey);
-//     },second);        
-
-//     clearInterval(moveKey);
-//     moveKey = setInterval(function(){
-//         playerPositionY = playerPositionY + (60 / frames);
-//         player.style.top = playerPositionY + "px";      
-//     },fps);
-//     return false;
-// }
-
-
-//stare chodzenie skokowe bardzo
-
-// window.addEventListener('keydown', event => {
-
-//         if (event.code === flyRight) {
-//             document.getElementById('player-movement').className = 'player-movement flyRight';
-//             if (playerPositionX + playerWidth + playerSpeedX <= worldWidth) {
-//             playerPositionX += playerSpeedX; 
-//             player.style.left = `${playerPositionX}px`;   
-//             }else{
-//             let playerActualPossitionX = parseInt(window.getComputedStyle(player).left);
-//             playerNewSpeedX = worldWidth - playerActualPossitionX - playerWidth;
-//             playerActualPossitionX += playerNewSpeedX; 
-//             player.style.left = `${playerActualPossitionX}px`;
-//             } 
-//         }
-
-//         if (event.code === flyLeft) {
-//             document.getElementById('player-movement').className = 'player-movement flyLeft';
-//             if (playerPositionX >= playerSpeedX) {
-//                 playerPositionX -= playerSpeedX;
-//                 player.style.left = `${playerPositionX}px`;   
-//             }else{
-//                 let playerActualPossitionX = parseInt(window.getComputedStyle(player).left);
-//                 playerNewSpeedX = playerActualPossitionX;
-//                 playerActualPossitionX -= playerNewSpeedX; 
-//                 player.style.left = `${playerActualPossitionX}px`;
-//             } 
-//         }
-
-//         if (event.code === flyUp) {
-//             document.getElementById('player-movement').className = 'player-movement flyRightUp';
-//             if (playerPositionY >= playerSpeedY) {
-//                 playerPositionY -= playerSpeedY;
-//                 player.style.top = `${playerPositionY}px`;
-//             }else{
-//                 let playerActualPositionY = parseInt(window.getComputedStyle(player).top);
-//                 playerNewSpeedY = playerActualPositionY;
-//                 playerActualPositionY += playerNewSpeedY; 
-//                 player.style.top = `${playerActualPositionY}px`;
-//             }
-//         }
-
-
-//         if (event.code === flyDown) {
-//             document.getElementById('player-movement').className = 'player-movement flyRightDown';
-//             if (playerPositionY + playerHeight + playerSpeedY <= worldHeight) {
-//                 playerPositionY += playerSpeedY;
-//                 player.style.top = `${playerPositionY}px`;
-//             }else{
-//                 let playerActualPositionY = parseInt(window.getComputedStyle(player).top);
-//                 playerNewSpeedY = worldHeight - playerActualPositionY - playerHeight;
-//                 playerActualPositionY += playerNewSpeedY; 
-//                 player.style.top = `${playerActualPositionY}px`;
-//             }
-//         }
-        
-
-
-// });
+const pigeonInterval = setInterval (() => {
+    const numberOfPigeons =  document.getElementsByClassName('pigeon');
+    if (numberOfPigeons.length < 5) {
+        createNewPigeon(obstacleType3, pigeonTop);
+   }
+}, 4000);
 
 
 
-// window.addEventListener('keyup', event => {
-//     if (event.code === flyLeft) {
-//         document.getElementById('player-movement').className = 'player-movement flyRight';
+// ******* COLLISION ***** //
 
-//     }
+    // *** sunbed *** //
 
-//     if (event.code === flyUp) {
-//         document.getElementById('player-movement').className = 'player-movement flyRight';
-//     }
+const getsunbedDimensions = () => {
+    let sunbed = document.querySelector('.sunbed');
 
-//     if (event.code === flyDown) {
-//         document.getElementById('player-movement').className = 'player-movement flyRight';
-//     }
-// });
+    if (sunbed === null) {
+        return;
+    }
+        let sunbedWidth = parseInt(window.getComputedStyle(sunbed).width);
+        let sunbedLeft = parseInt(window.getComputedStyle(sunbed).left);
+        let sunbedHeight = parseInt(window.getComputedStyle(sunbed).height);
 
+        sunbedList.push({left: sunbedLeft, height: sunbedHeight, width: sunbedWidth});
+};
 
+const hasCollisionWithsunbed = sunbed => {
+    return playerPositionX + playerWidth >= sunbed.left && 
+    playerPositionX  <= sunbed.left + sunbed.width &&
+    worldHeight - playerPositionY <= sunbed.height
+}
+
+const collisionWithsunbedFunction = () => {
+    sunbedList.some(sunbed => {
+        if (hasCollisionWithsunbed(sunbed)) {
+            return life -= 1;
+        }   
+    })   
+};
+
+    // *** TREE *** //
+const getTreeDimensions = () => {
+    let tree = document.querySelector('.tree');
+
+    if (tree === null) {
+        return;
+    }
+        let treeWidth = parseInt(window.getComputedStyle(tree).width);
+        let treeLeft = parseInt(window.getComputedStyle(tree).left);
+        let treeHeight = parseInt(window.getComputedStyle(tree).height);
+
+        treeList.push({left: treeLeft, height: treeHeight, width: treeWidth});
+};
+    
+const hasCollisionWithTree = tree => {
+    return playerPositionX + playerWidth >= tree.left && 
+    playerPositionX  <= tree.left + tree.width &&
+    worldHeight - playerPositionY <= tree.height
+}
+
+const collisionWithTreeFunction = () => {
+    treeList.some(tree => {
+        if (hasCollisionWithTree(tree)) {
+            return life -= 1;
+        }   
+    })   
+};  
+
+    // *** PIGEON *** //
+const getPigeonDimensions = () => {
+    let pigeon = document.querySelector('.pigeon');
+
+    if (pigeon === null) {
+        return;
+    }
+        let pigeonWidth = parseInt(window.getComputedStyle(pigeon).width);
+        let pigeonLeft = parseInt(window.getComputedStyle(pigeon).left);
+        let pigeonHeight = parseInt(window.getComputedStyle(pigeon).height);
+        let pigeonTop = parseInt(window.getComputedStyle(pigeon).top);
+
+        pigeonList.push({left: pigeonLeft, top: pigeonTop, height: pigeonHeight, width: pigeonWidth});
+};
+    
+const hasCollisionWithPigeon = pigeon => {
+    return playerPositionX + playerWidth >= pigeon.left && 
+    playerPositionX  <= pigeon.left + pigeon.width &&
+    playerPositionY + playerHeight >= pigeon.top && 
+    playerPositionY <= pigeon.top + pigeon.height
+}
+
+const collisionWithPigeonFunction = () => {
+    pigeonList.some(pigeon => {
+        if (hasCollisionWithPigeon(pigeon)) {
+            return life -= 1;
+        }   
+    })   
+};
+
+const refreshFunction = setInterval(() => {
+    getsunbedDimensions();
+    getTreeDimensions();
+    getPigeonDimensions();
+    collisionWithsunbedFunction();
+    collisionWithTreeFunction();
+    collisionWithPigeonFunction();
+    pigeonList = [];
+    sunbedList = [];
+    treeList = [];
+    updateLifeView();
+    // gameOverFunction();
+}, 1000);
