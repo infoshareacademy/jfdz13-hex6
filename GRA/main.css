@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-primary: #fefefe;
+    --color-yellow: #fed701;
+    --color-darkblue: #02c9da;
+    --color-lightblue: #85dbf2;
+    --color-lightgray: #f6f6f6;
+    --color-darkgray: #626262;
+    --color-dark: #191919;
+}
+
+.game-container {
+    width: 100vw;
+    height: 100vh;
+    padding: 20px;
+    background-color: var(--color-darkgray);
+    display: flex;
+    align-items: center;
+    position: absolute;
+    /* overflow: hidden; */
+    
+}
+
+.world {
+    position: relative;
+    background-color: var(--color-darkblue);
+    display: flex;
+    width: 10000px;
+    height: 100%;
+    
+}
+
+.player {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    z-index: 99;
+    overflow: hidden;
+    
+}
+
+ /* PLAYER movement */
+
+.player-movement {
+    animation: fly-movement .4s steps(12) infinite;
+    width: 1200px;
+    height: 600px;
+    position: relative;
+    
+}
+
+.flyRight {
+top: 0;
+}
+
+.flyRightUp {
+top: -300px;
+}
+
+.flyRightDown {
+top: -500px;
+}
+
+.flyLeft {
+top: -100px;
+}
+
+.flyLeftUp {
+top: -200px;
+}
+
+.flyLeftDown {
+top: -400px;
+}
+
+
+@keyframes fly-movement {
+    from {
+        transform: translate3d(0px,0,0)
+    }
+    to {
+        transform: translate3d(-100%,0,0)
+    }
+}
+
+/* OBSTACLES */
+
+.lamp {
+    position: absolute;
+    bottom: 0;
+    width: 100px;
+    background: url(images/latarnia.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.tree {
+    position: absolute;
+    bottom: 0;
+    width: 230px;
+    background: url(images/drzewo1.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.pigeon {
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    overflow: hidden;
+}
+.pigeon-movement {
+    animation: fly-movement .4s steps(8) infinite;
+    width: 600px;
+    height: 75px;
+    position: relative;
+}
+
+/* GAME OVER */
+
+.gameOver {
+    position: absolute;
+    width: 500px;
+    height: 300px;
+    background-color: red;
+    top: 100px;
+    left: 200px;
+    z-index: 2;
+}
