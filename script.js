@@ -21,17 +21,53 @@ window.addEventListener('scroll', () => {
 });
 
 window.addEventListener('scroll', () => {
+    
+    const mainItem = document.getElementsByClassName('navigation-list__item')[0];
+    const mainLink = document.getElementsByClassName('navigation-link')[0];
+
     const featureItem = document.getElementsByClassName('navigation-list__item')[1];
     const featureLink = document.getElementsByClassName('navigation-link')[1];
-    
 
-    // for (i = 0; i <= 5; i++) {
+    const contactItem = document.getElementsByClassName('navigation-list__item')[2];
+    const contactLink = document.getElementsByClassName('navigation-link')[2];
 
-    // }
+    const teamItem = document.getElementsByClassName('navigation-list__item')[3];
+    const teamLink = document.getElementsByClassName('navigation-link')[3];
 
-    if (window.scrollY > 200) {
-        featureItem.classList.add('navigation-list__item--active');
-        featureLink.classList.add('navigation-link--active');
+    if (desktopViewport.matches) {
+        if (window.scrollY > 0 && window.scrollY < 799) {
+            mainItem.classList.add('navigation-list__item--active');
+            mainLink.classList.add('navigation-link--active');
+            featureItem.classList.remove('navigation-list__item--active');
+            featureLink.classList.remove('navigation-link--active');
+            teamItem.classList.remove('navigation-list__item--active');
+            teamLink.classList.remove('navigation-link--active');
+        }
+
+        if (window.scrollY > 800 && window.scrollY < 1299) {
+            featureItem.classList.add('navigation-list__item--active');
+            featureLink.classList.add('navigation-link--active');
+            mainItem.classList.remove('navigation-list__item--active');
+            mainLink.classList.remove('navigation-link--active');
+            contactItem.classList.remove('navigation-list__item--active');
+            contactLink.classList.remove('navigation-link--active');
+        }
+
+        if (window.scrollY > 1300 && window.scrollY < 1799) {
+            contactItem.classList.add('navigation-list__item--active');
+            contactLink.classList.add('navigation-link--active');
+            featureItem.classList.remove('navigation-list__item--active');
+            featureLink.classList.remove('navigation-link--active');
+            teamItem.classList.remove('navigation-list__item--active');
+            teamLink.classList.remove('navigation-link--active');
+        }
+
+        if (window.scrollY > 1800) {
+            teamItem.classList.add('navigation-list__item--active');
+            teamLink.classList.add('navigation-link--active');
+            contactItem.classList.remove('navigation-list__item--active');
+            contactLink.classList.remove('navigation-link--active');
+        }
     }
 });
 
