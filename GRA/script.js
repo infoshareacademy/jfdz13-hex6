@@ -141,7 +141,7 @@ const createNewObstacle = (obstacleType, obstacleHeightArray) => {
     obstacle.className = obstacleType;
     const obstacleHeight = generateObstacleHeight(obstacleHeightArray);
     obstacle.style.height = `${obstacleHeight}px`;
-    obstacle.style.left = `${1200}px`;
+    obstacle.style.left = `${810}px`;
 
     world.appendChild(obstacle);
     
@@ -165,14 +165,14 @@ const lampInterval = setInterval (() => {
     if (numberOfLamps.length < 3) {
         createNewObstacle(obstacleType1, lampHeight);
    }
-}, 8000);
+}, 5000);
 
 const treeInterval = setInterval (() => {
     let numberOfTrees =  document.getElementsByClassName('tree');
     if (numberOfTrees.length < 3) {
         createNewObstacle(obstacleType2, lampHeight);
    }
-}, 11000);
+}, 8000);
 
 
 // ***** PIGEON GENERATOR *** //
@@ -183,7 +183,7 @@ const createNewPigeon = (obstacleType, obstacleTopArray) => {
     const obstacle = document.createElement('div');
     obstacle.className = obstacleType;
 
-    obstacle.style.left = `${1200}px`;
+    obstacle.style.left = `${810}px`;
     const obstacleTop = generateObstacleHeight(obstacleTopArray);
     obstacle.style.top = `${obstacleTop}px`;
 
@@ -214,7 +214,7 @@ const pigeonInterval = setInterval (() => {
     if (numberOfPigeons.length < 4) {
         createNewPigeon(obstacleType3, pigeonTop);
    }
-}, 5000);
+}, 4000);
 
 
 // ******* COLLISION ***** //
@@ -242,7 +242,7 @@ const hasCollisionWithLamp = lamp => {
 
 const collisionWithLampFunction = () => {
     lampList.some(lamp => {
-        if (hasCollision(lamp)) {
+        if (hasCollisionWithLamp(lamp)) {
             return life -= 1;
         }   
     })   
