@@ -22,10 +22,8 @@
   <!--NAV-->
   <div class="navigation-title" id="navigationTitle">
     <div class="navigation-title__text">
-      <svg class="navigation_icon" viewBox="-5 -7 24 24" width="24" height="24" preserveAspectRatio="xMinYMin">
-        <path
-          d='M1 0h5a1 1 0 1 1 0 2H1a1 1 0 1 1 0-2zm7 8h5a1 1 0 0 1 0 2H8a1 1 0 1 1 0-2zM1 4h12a1 1 0 0 1 0 2H1a1 1 0 1 1 0-2z' />
-      </svg>
+
+        <svg class="navigation_icon" viewBox="-5 -7 24 24" width="24" height="24" preserveAspectRatio="xMinYMin"><path d="M6.35,7H17.73A1.16,1.16,0,0,1,19,8a1.16,1.16,0,0,1-1.27,1H6.35A1.16,1.16,0,0,1,5.08,8,1.16,1.16,0,0,1,6.35,7Zm0,8H17.73A1.16,1.16,0,0,1,19,16a1.16,1.16,0,0,1-1.27,1H6.35a1.16,1.16,0,0,1-1.27-1A1.16,1.16,0,0,1,6.35,15Zm0-4H17.73A1.16,1.16,0,0,1,19,12a1.16,1.16,0,0,1-1.27,1H6.35a1.16,1.16,0,0,1-1.27-1A1.16,1.16,0,0,1,6.35,11Z" transform="translate(-5.08 -7)"/></svg>
     </div>
   </div>
 
@@ -38,20 +36,21 @@
           </a>
         </li>
         <li class="navigation-list__item">
-          <a class="navigation-link" href="#features-container">
+          <a class="navigation-link" href="#features">
             Features
           </a>
         </li>
         <li class="navigation-list__item">
-          <a class="navigation-link" href="#contact-section">
-            Contact
-          </a>
-        </li>
+            <a class="navigation-link" href="#about">
+              About Us
+            </a>
+          </li>
         <li class="navigation-list__item">
-          <a class="navigation-link" href="#about-us">
-            About Us
+          <a class="navigation-link" href="#contact">
+            Contact us
           </a>
         </li>
+        
       </ul>
     </div>
   </nav>
@@ -71,7 +70,7 @@
 
     <section class="hero-section__content">
       <div class="logo-container">
-        <svg class="logo" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 1605.7 582.4"
+        <svg class="logo" x="0px" y="0px" viewBox="0 0 1605.7 582.4"
           style="enable-background:new 0 0 1605.7 582.4;" xml:space="preserve">
           <title>LOGO3c</title>
           <g id="NAPIS">
@@ -220,8 +219,8 @@
 
       <div class="hero-section__description-icon">
         <p class="hero-section__description-help">EXPLORE THE TRI-CITY WITH US!</p>
-        <a href="#contact-section" class="hero-section__desctiption-icon-link">
-          <svg class="scroll-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="-5 -5 24 24" width="24" height="24"
+        <a href="#contact" class="hero-section__desctiption-icon-link">
+          <svg class="scroll-arrow" viewBox="-5 -5 24 24" width="24" height="24"
             preserveAspectRatio="xMinYMin" class="jam jam-chevrons-down">
             <path
               d='M7.071 5.314l4.95-4.95a1 1 0 1 1 1.414 1.414L7.778 7.435a1 1 0 0 1-1.414 0L.707 1.778A1 1 0 1 1 2.121.364l4.95 4.95zm0 6l4.95-4.95a1 1 0 1 1 1.414 1.414l-5.657 5.657a1 1 0 0 1-1.414 0L.707 7.778a1 1 0 1 1 1.414-1.414l4.95 4.95z' />
@@ -232,8 +231,11 @@
   </section>
 
   <!--FEATURES-->
-  <!-- <div class="features-header2">ABOUT PRODUCT</div> -->
-  <div class="features-header">AMAZING FEATURES</div>
+
+  <div class="features__description" id="features">
+      <h2 class="features__title">Amazing features waiting for you</h2>
+      <h3 class="features__story">These features will change the way you plan your trip!</h3>
+  </div>
 
 
   <div class="features-container" id="features-container">
@@ -291,39 +293,14 @@
 
   </div>
 
+  <div class="features-bottom" id="features-bottom"></div>
 
-  <section class="contact-section" id="contact-section">
-
-    <section class="data-form">
-
-      <div class="data-form__info">
-        <div class="data-form__info-background">
-
-          <h2 class="data-form__header">You're invited!</h2>
-
-          <p class="data-form__text-info">Be the first to know when the QUO VADIS app launches</p>
-
-        </div>
-      </div>
-
-      <form action="_blank" class="data-form__form">
-        <input class="data-box" type="text" name="firstname" placeholder=" Leave us your first name..." required>
-        <input class="data-box" type="text" name="lastname" placeholder="...and last name..." required>
-        <input class="data-box" type="email" placeholder="...and e-mail address" name="emailaddress" required>
-        <div class="agreement-block"><input class="checkbox" type="checkbox" name="agreement" required><span
-            class="agreement-text">I agree to the processing of my personal data contained in this form in order to be
-            informed about the premiere of the QUO VADIS app.</span></div>
-        <input class="submit-input" type="submit" value="SIGN UP">
-      </form>
-
-    </section>
-
-  </section>
+  
 
 
   <!-- <div class="team-section"></div> -->
   <section class="team-section">
-    <div class="team-section__description" id="about-us">
+    <div class="team-section__description" id="about">
       <h2 class="team-section__title">About us</h2>
       <h3 class="team-section__story"> We are the group of talented people who are passionate about what they do and
         enjoy programming. We were brought together by <a href="https://infoshareacademy.com/" target="_blank"
@@ -522,6 +499,39 @@
       </div>
     </div>
   </section>
+
+  <!-- "contact section" -->
+
+  <div class="contact-section__description" id="contact">
+      <h2 class="contact__title">You're invited!</h2>
+      <h3 class="contact__story">Be the first to know when the QUO VADIS app launches. Please leave us your contact details and have fun playing our game "Crazy bird"!</h3>
+  </div>
+
+  <section class="contact-section" id="contact-section">
+
+
+      <section class="data-form">
+  
+        <div class="data-form__info">
+          <div class="data-form__info-background"></div>
+        </div>
+  
+        <form action="_blank" class="data-form__form">
+          <input class="data-box" type="text" name="firstname" placeholder=" Leave us your first name..." required>
+          <input class="data-box" type="text" name="lastname" placeholder="...and last name..." required>
+          <input class="data-box" type="email" placeholder="...and e-mail address" name="emailaddress" required>
+          <div class="agreement-block"><input class="checkbox" type="checkbox" name="agreement" required><span
+              class="agreement-text">I agree to the processing of my personal data contained in this form in order to be
+              informed about the premiere of the QUO VADIS app.</span></div>
+          <input class="submit-input" type="submit" value="SIGN UP">
+        </form>
+  
+      </section>
+  
+    </section>
+
+
+    <!-- "footer section" -->
 
   <footer class="footer">
     <div class="footer-phone">
