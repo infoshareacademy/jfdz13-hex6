@@ -14,42 +14,95 @@
     --color-dark: #191919;
 }
 
+
 .game-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: radial-gradient(circle, rgba(254,215,1,1) 0%, rgba(2,201,218,1) 100%);
     width: 100vw;
     height: 100vh;
-    padding: 20px;
-    background-color: var(--color-darkgray);
-    display: flex;
-    align-items: center;
-    position: absolute;
-    /* overflow: hidden; */
+    overflow: hidden; 
+}
     
+.game-title {
+    height: 150px;
+    width: 100vw;
+    display: flex;
+    position: relative;  
+    margin: 10px;
+    justify-content: center;  
+}
+
+.H6-logo {
+    height: 150px;
+    width: auto;
 }
 
 .world {
-    position: relative;
-    background-color: var(--color-darkblue);
+    width: 800px;
+    height: 600px;
+    padding: 1px;
+    background-color: var(--color-primary);
     display: flex;
-    width: 10000px;
+    align-items: center;
+    position: relative;
+    /* overflow: hidden; */
+ 
+}
+
+.life {
+    position: absolute;
+    top: 0;
+}
+
+ /* backgraund test animation movement */
+
+.background {
+    position: relative;
+    width: 100%;
     height: 100%;
+    background-image: url(images/clouds1-800x600.png),
+                      url(images/clouds2-800x600.png),
+                      url(images/background2-800x600.png),
+                      url(images/background1-800x600.png);               
+    background-size: 100%;
+    background-position: 0px 0px;
+    animation: backgroundAnimation 200s linear infinite;
     
+}
+
+
+
+
+@keyframes backgroundAnimation {
+    100% {
+        background-position: -1200vw 0px,
+                             -1200vw 0px,
+                             -1200vw 0px,
+                             -1200vw 0px;
+     };   
 }
 
 .player {
     position: absolute;
     width: 100px;
     height: 100px;
-    z-index: 99;
+    z-index: 54;
     overflow: hidden;
     
 }
 
- /* PLAYER movement */
+ /* PLAYER animation movement */
 
 .player-movement {
     animation: fly-movement .4s steps(12) infinite;
     width: 1200px;
-    height: 600px;
+    height: 200px;
     position: relative;
     
 }
@@ -58,24 +111,8 @@
 top: 0;
 }
 
-.flyRightUp {
-top: -300px;
-}
-
-.flyRightDown {
-top: -500px;
-}
-
 .flyLeft {
 top: -100px;
-}
-
-.flyLeftUp {
-top: -200px;
-}
-
-.flyLeftDown {
-top: -400px;
 }
 
 
@@ -88,24 +125,26 @@ top: -400px;
     }
 }
 
-/* OBSTACLES */
-
-.lamp {
-    position: absolute;
-    bottom: 0;
-    width: 100px;
-    background: url(images/latarnia.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-}
+ /* OBSTACLES */
 
 .tree {
     position: absolute;
     bottom: 0;
     width: 230px;
-    background: url(images/drzewo1.png);
+    background: url(images/tree.png);
     background-size: contain;
     background-repeat: no-repeat;
+    z-index: 55;
+}
+
+.sunbed {
+    position: absolute;
+    bottom: 0;
+    width: 230px;
+    background: url(images/sunbed.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 54;
 }
 
 .pigeon {
@@ -113,6 +152,7 @@ top: -400px;
     width: 75px;
     height: 75px;
     overflow: hidden;
+    z-index: 53;
 }
 .pigeon-movement {
     animation: fly-movement .4s steps(8) infinite;
@@ -121,14 +161,22 @@ top: -400px;
     position: relative;
 }
 
+.heart {
+    width: 150px;
+    height: auto;
+    position: absolute;
+    top: 10px;
+    right: 40px;
+}
+
 /* GAME OVER */
 
-.gameOver {
+/* .gameOver {
     position: absolute;
-    width: 500px;
-    height: 300px;
-    background-color: red;
-    top: 100px;
-    left: 200px;
-    z-index: 2;
-}
+    width: 800px;
+    height: 600px;
+    background: url(images/GAMEOVER.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 5;
+} */
