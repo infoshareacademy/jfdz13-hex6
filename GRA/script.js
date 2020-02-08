@@ -14,8 +14,8 @@ const flyLeft = 'ArrowLeft';
 const flyUp = 'ArrowUp';
 const flyDown = 'ArrowDown';
 
-let playerSpeedX = 80;
-let playerSpeedY = 100;
+let playerSpeedX = 40;
+let playerSpeedY = 40;
 
 let playerPositionX = parseInt(window.getComputedStyle(player).left);
 let playerPositionY = parseInt(window.getComputedStyle(player).top);
@@ -95,7 +95,7 @@ function movePlayerRight() {
 
 function movePlayerLeft() {
     getDeltaTime();
-    document.getElementById('player-movement').className = 'player-movement flyLeft';
+    document.getElementById('player-movement').className = 'player-movement flyRight';
     stopId = requestAnimationFrame(movePlayerLeft);
     if (toggle && playerPositionX >= 0.01 * playerSpeedX * dTime) {
         playerPositionX -= 0.01 * playerSpeedX * dTime;
