@@ -1,5 +1,3 @@
-
-
 //WORLD
 const world = document.querySelector('#world');
 const worldWidth = parseInt(window.getComputedStyle(world).width);
