@@ -92,7 +92,7 @@
     position: absolute;
     width: 100px;
     height: 100px;
-    z-index: 54;
+    z-index: 4;
     overflow: hidden;
     
 }
@@ -134,7 +134,7 @@ top: -100px;
     background: url(images/tree.png);
     background-size: contain;
     background-repeat: no-repeat;
-    z-index: 55;
+    z-index: 3;
 }
 
 .sunbed {
@@ -144,7 +144,7 @@ top: -100px;
     background: url(images/sunbed.png);
     background-size: contain;
     background-repeat: no-repeat;
-    z-index: 54;
+    z-index: 2;
 }
 
 .pigeon {
@@ -152,7 +152,7 @@ top: -100px;
     width: 75px;
     height: 75px;
     overflow: hidden;
-    z-index: 53;
+    z-index: 1;
 }
 .pigeon-movement {
     animation: fly-movement .4s steps(8) infinite;
@@ -171,12 +171,13 @@ top: -100px;
 
 /* GAME OVER */
 
-/* .gameOver {
+.gameOver {
     position: absolute;
     width: 800px;
     height: 600px;
+    /* top: 10px; */
     background: url(images/GAMEOVER.png);
     background-repeat: no-repeat;
     background-size: contain;
-    z-index: 5;
-} */
+    z-index: 4;
+}

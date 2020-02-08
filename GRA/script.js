@@ -28,15 +28,15 @@ let pigeonList = [];
 
 let life = 3;
 
-const lifeDiv = document.createElement('div');
-world.appendChild(lifeDiv);
-lifeDiv.className = 'life';
-lifeDiv.innerText = `Życie: ${life}`;
-lifeDiv.style.top = '0';
-lifeDiv.style.right = '-100px';
+// const lifeDiv = document.createElement('div');
+// world.appendChild(lifeDiv);
+// lifeDiv.className = 'life';
+// lifeDiv.innerText = `Życie: ${life}`;
+// lifeDiv.style.top = '0';
+// lifeDiv.style.right = '-100px';
 
 updateLifeView = () => {
-    lifeDiv.innerText = `Życie: ${life}`;
+    // lifeDiv.innerText = `Życie: ${life}`;
     if (life === 3) {
         document.getElementById("heart").src = "images/life3.png";
     }
@@ -55,18 +55,17 @@ updateLifeView = () => {
 
 // *** GAME OVER *** //
 
-// const gameOverDiv = document.createElement('div');
+const gameOverDiv = document.createElement('div');
     
-// gameOverDiv.className = 'gameOver';
+gameOverDiv.className = 'gameOver';
 
-// const gameOverFunction = () => {
-//     if (life <= 0) {
-//         world.appendChild(gameOverDiv);
-//         player.remove();
-//         clearInterval(sunbedInterval);
+const gameOverFunction = () => {
+    if (life <= 0) {
+        world.appendChild(gameOverDiv);
+        player.remove();
 
-//     } 
-// }
+    } 
+}
 
 //PLAYER moving
 
@@ -164,7 +163,7 @@ window.addEventListener('keyup', event => {
 obstacleType1 = 'sunbed';
 obstacleType2 = 'tree';
 
-const sunbedHeight = [320];
+const sunbedHeight = [320, 310, 300, 290, 280, 270, 260, 250, 240, 230];
 const treeHeight = [510, 500, 490, 470, 450, 440, 430, 400, 360, 350];
 const pigeonTop = [10, 50, 60, 90, 140, 180, 260, 300, 340];
 
@@ -211,7 +210,7 @@ const treeInterval = setInterval (() => {
     if (numberOfTrees.length < 3) {
         createNewObstacle(obstacleType2, sunbedHeight);
    }
-}, 8000);
+}, 9000);
 
 
 // ***** PIGEON GENERATOR *** //
@@ -357,5 +356,5 @@ const refreshFunction = setInterval(() => {
     sunbedList = [];
     treeList = [];
     updateLifeView();
-    // gameOverFunction();
+    gameOverFunction();
 }, 1000);
