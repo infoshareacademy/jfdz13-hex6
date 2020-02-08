@@ -44,7 +44,7 @@ window.addEventListener('scroll', () => {
             teamLink.classList.remove('navigation-link--active');
         }
 
-        if (window.scrollY > 800 && window.scrollY < 1299) {
+        if (window.scrollY > 800 && window.scrollY < 1499) {
             featureItem.classList.add('navigation-list__item--active');
             featureLink.classList.add('navigation-link--active');
             mainItem.classList.remove('navigation-list__item--active');
@@ -53,7 +53,7 @@ window.addEventListener('scroll', () => {
             contactLink.classList.remove('navigation-link--active');
         }
 
-        if (window.scrollY > 1300 && window.scrollY < 1799) {
+        if (window.scrollY > 1500 && window.scrollY < 2699) {
             contactItem.classList.add('navigation-list__item--active');
             contactLink.classList.add('navigation-link--active');
             featureItem.classList.remove('navigation-list__item--active');
@@ -62,7 +62,7 @@ window.addEventListener('scroll', () => {
             teamLink.classList.remove('navigation-link--active');
         }
 
-        if (window.scrollY > 1800) {
+        if (window.scrollY > 2700) {
             teamItem.classList.add('navigation-list__item--active');
             teamLink.classList.add('navigation-link--active');
             contactItem.classList.remove('navigation-list__item--active');
