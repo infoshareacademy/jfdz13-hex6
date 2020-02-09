@@ -651,6 +651,8 @@ box-sizing:border-box;
   display: flex;
   color: var(--color-dark);
   padding-bottom: 5rem;
+  flex-wrap: nowrap;
+  flex-direction: row;
 
 
 }
@@ -662,6 +664,7 @@ box-sizing:border-box;
   background-size: contain;
   background-repeat: no-repeat;
   max-width: 80%;
+  height: auto;
 }
 
 .data-form__info-background {
@@ -739,6 +742,8 @@ box-sizing:border-box;
 @media (max-width: 800px) {
   .data-form {
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   .data-form__header {
@@ -756,6 +761,11 @@ box-sizing:border-box;
 
   .data-form__form .submit-input {
   padding: 5px;
+  }
+  .data-form__info {
+    height: 300px;
+    width: 100%;
+
   }
 }
 

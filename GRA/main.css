@@ -119,10 +119,11 @@
 
  /* PLAYER animation movement */
 
-.player-movement {
+
+ .player-movement {
     animation: fly-movement .4s steps(12) infinite;
     width: 1200px;
-    height: 200px;
+    height: 400px;
     position: relative;
     
 }
@@ -135,13 +136,20 @@ top: 0;
 top: -100px;
 }
 
+.flyRightConfusion {
+top: -200px;
+}
+    
+.flyLeftConfusion {
+top: -300px;
+}
 
 @keyframes fly-movement {
-    from {
-        transform: translate3d(0px,0,0)
+from {
+    transform: translate3d(0px,0,0)
     }
-    to {
-        transform: translate3d(-100%,0,0)
+to {
+    transform: translate3d(-100%,0,0)
     }
 }
 
