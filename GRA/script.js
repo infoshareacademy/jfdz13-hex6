@@ -417,7 +417,7 @@ function fireLaser() {
 const createNewAim = (aimType) => {
     const aim = document.createElement('div');
     aim.className = aimType;
-    aim.style.left = `${0}px`;
+    aim.style.left = `${-250}px`;
     world.appendChild(aim);
 
     const movingAim = setInterval ( () =>  {
@@ -428,7 +428,7 @@ const createNewAim = (aimType) => {
      }, 10);
 
     const stopMovingAim = (newAimLeft) => {
-        if(newAimLeft > 700) {
+        if(newAimLeft > 900) {
             aim.remove();
             createNewAim(aimType);
         };
@@ -439,7 +439,7 @@ const createNewAim = (aimType) => {
 const createNewAim2 = (aimType) => {
     const aim = document.createElement('div');
     aim.className = aimType;
-    aim.style.left = `${700}px`;
+    aim.style.left = `${900}px`;
     world.appendChild(aim);
 
     const movingAim = setInterval ( () =>  {
@@ -450,7 +450,7 @@ const createNewAim2 = (aimType) => {
      }, 10);
 
     const stopMovingAim = (newAimLeft) => {
-        if(newAimLeft < 0) {
+        if(newAimLeft < -250) {
             aim.remove();
             createNewAim2(aimType);
         };
@@ -460,7 +460,7 @@ const createNewAim2 = (aimType) => {
 const createNewAim3 = (aimType) => {
     const aim = document.createElement('div');
     aim.className = aimType;
-    aim.style.left = `${700}px`;
+    aim.style.left = `${900}px`;
     world.appendChild(aim);
 
     const movingAim = setInterval ( () =>  {
@@ -471,7 +471,7 @@ const createNewAim3 = (aimType) => {
      }, 10);
 
     const stopMovingAim = (newAimLeft) => {
-        if(newAimLeft < 0) {
+        if(newAimLeft < -250) {
             aim.remove();
             createNewAim3(aimType);
         };
