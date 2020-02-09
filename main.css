@@ -405,7 +405,7 @@ box-sizing:border-box;
   }
 
 }
-  
+
 
 /* HERO SECTION */
 
@@ -1151,7 +1151,7 @@ a.cookieConsent__button:hover {
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
-  width: 800px;
+  width: 900px;
   height: 100%;
   background-color: var(--color-primary);
   z-index: 10;
