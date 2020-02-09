@@ -191,7 +191,7 @@ const createNewObstacle = (obstacleType, obstacleHeightArray) => {
     }, 10);
 
     const stopMovingObstacle = (newObstacleLeft) => {
-        if(newObstacleLeft + 20 < 0) {
+        if(newObstacleLeft + 190 < 0) {
             obstacle.remove();
             createNewObstacle(obstacleType, obstacleHeightArray);
         };
