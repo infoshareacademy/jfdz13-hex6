@@ -209,3 +209,46 @@ to {
     background-size: contain;
     z-index: 4;
 }
+
+
+/* POO */
+
+.laser {
+    width: 30px;
+    height: 60px;
+    position: absolute;
+    /* background: url(images/kid2.png); */
+    z-index: 10000;
+  }
+
+/* AIMS */
+
+.man {
+    position: absolute;
+    bottom: 0;
+    width: 300px;
+    height: 150px;
+    background: url(images/kid2.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.girl {
+    position: absolute;
+    bottom: 0;
+    width: 230px;
+    height: 100px;
+    background: url(images/bike.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.car {
+    position: absolute;
+    bottom: 0;
+    width: 230px;
+    height: 100px;
+    background: url(images/drive.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
