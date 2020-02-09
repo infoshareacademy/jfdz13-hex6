@@ -14,8 +14,8 @@ const flyLeft = 'ArrowLeft';
 const flyUp = 'ArrowUp';
 const flyDown = 'ArrowDown';
 
-let playerSpeedX = 40;
-let playerSpeedY = 40;
+let playerSpeedX = 50;
+let playerSpeedY = 50;
 
 let playerPositionX = parseInt(window.getComputedStyle(player).left);
 let playerPositionY = parseInt(window.getComputedStyle(player).top);
