@@ -358,3 +358,153 @@ const refreshFunction = setInterval(() => {
     updateLifeView();
     gameOverFunction();
 }, 1000);
+
+
+
+//POO 
+
+
+const shoot = ' ';
+
+window.addEventListener("click", (event) => {
+    playGame()
+  })
+
+function letShipFly(event) {
+    if (event.key === " ") {
+     event.preventDefault()
+     fireLaser()
+   }
+ }
+
+function fireLaser() {
+    let laser = createLaserElement()
+    world.appendChild(laser)
+    moveLaser(laser)
+  }
+
+
+  function createLaserElement() {
+    let xPosition = parseInt(window.getComputedStyle(player).getPropertyValue('left'))
+    let yPosition = parseInt(window.getComputedStyle(player).getPropertyValue('top'))
+    let newLaser = document.createElement('img')
+    newLaser.src = "images/fireball-1.png"
+    newLaser.classList.add('laser')
+    newLaser.style.left = `${xPosition +20}px`
+    newLaser.style.top = `${yPosition +80}px`
+    return newLaser
+  }
+  
+
+  function moveLaser(laser) {
+    let laserInterval = setInterval(() => {
+      let yPosition = parseInt(laser.style.top)
+      if (yPosition === 700) {
+        laser.remove()
+      } else {
+        laser.style.top = `${yPosition + 18}px`
+      }
+    },50)
+  }
+  
+
+  function playGame(){
+    window.addEventListener("keydown", letShipFly)
+  }
+
+
+
+const createNewAim = (aimType) => {
+    const aim = document.createElement('div');
+    aim.className = aimType;
+    aim.style.left = `${0}px`;
+    world.appendChild(aim);
+
+    const movingAim = setInterval ( () =>  {
+        const AimLeft = parseInt(window.getComputedStyle(aim).left);
+        let newAimLeft = AimLeft + 2;
+       aim.style.left = `${newAimLeft}px`
+        stopMovingAim(newAimLeft);
+     }, 10);
+
+    const stopMovingAim = (newAimLeft) => {
+        if(newAimLeft > 700) {
+            aim.remove();
+            createNewAim(aimType);
+        };
+    };
+};
+
+
+const createNewAim2 = (aimType) => {
+    const aim = document.createElement('div');
+    aim.className = aimType;
+    aim.style.left = `${700}px`;
+    world.appendChild(aim);
+
+    const movingAim = setInterval ( () =>  {
+        const AimLeft = parseInt(window.getComputedStyle(aim).left);
+        let newAimLeft = AimLeft - 1.2;
+       aim.style.left = `${newAimLeft}px`
+        stopMovingAim(newAimLeft);
+     }, 10);
+
+    const stopMovingAim = (newAimLeft) => {
+        if(newAimLeft < 0) {
+            aim.remove();
+            createNewAim2(aimType);
+        };
+    };
+};
+
+const createNewAim3 = (aimType) => {
+    const aim = document.createElement('div');
+    aim.className = aimType;
+    aim.style.left = `${700}px`;
+    world.appendChild(aim);
+
+    const movingAim = setInterval ( () =>  {
+        const AimLeft = parseInt(window.getComputedStyle(aim).left);
+        let newAimLeft = AimLeft - 5;
+       aim.style.left = `${newAimLeft}px`
+        stopMovingAim(newAimLeft);
+     }, 10);
+
+    const stopMovingAim = (newAimLeft) => {
+        if(newAimLeft < 0) {
+            aim.remove();
+            createNewAim3(aimType);
+        };
+    };
+};
+
+
+
+//AIMS 
+
+aimType1 = 'girl';
+aimType2 = 'man';
+aimType3 = 'car';
+
+const girlInterval = setInterval (() => {
+    const numberOfAims =  document.getElementsByClassName('man');
+    if (numberOfAims.length < 2) {
+        createNewAim(aimType2);
+   }
+}, 6000);
+
+
+
+const manInterval = setInterval (() => {
+    const numberOfAims =  document.getElementsByClassName('girl');
+    if (numberOfAims.length < 2) {
+        createNewAim2(aimType1);
+   }
+}, 10000);
+
+const carInterval = setInterval (() => {
+    const numberOfAims =  document.getElementsByClassName('car');
+    if (numberOfAims.length < 2) {
+        createNewAim3(aimType3);
+   }
+}, 15000);
